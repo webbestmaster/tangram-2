@@ -1,0 +1,21 @@
+.rotater {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+  opacity: 0.66;
+  transition: opacity 0.1s ease-out;
+}
+
+.rotater__hidden {
+  opacity: 0;
+}
+
+.state-rotater {
+  background-image: url(../i/rotate-bg.svg);
+}
+
+.state-mover {
+  background-image: url(../i/mover-bg.svg);
+}
