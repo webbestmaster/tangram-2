@@ -18,6 +18,7 @@ import people_2 from './sections/people-2';
 import people_3 from './sections/people-3';
 import rabbit from './sections/rabbit';
 import rider from './sections/rider';
+import fish from './sections/fish';
 
 var tangrams = {
 
@@ -40,7 +41,8 @@ var tangrams = {
 		people_2,
 		people_3,
 		rabbit,
-		rider
+		rider,
+		fish
 	]
 
 };

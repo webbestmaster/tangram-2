@@ -49,6 +49,7 @@ var en = {
 	people: 'people',
 	rabbits: 'rabbits',
 	riders: 'riders',
+	fish: 'fish',
 
 	// settings
 
