@@ -19,6 +19,7 @@ import people_3 from './sections/people-3';
 import rabbit from './sections/rabbit';
 import rider from './sections/rider';
 import fish from './sections/fish';
+import tree from './sections/tree';
 
 var tangrams = {
 
@@ -42,7 +43,10 @@ var tangrams = {
 		people_3,
 		rabbit,
 		rider,
-		fish
+		fish,
+		tree
+
+
 	]
 
 };

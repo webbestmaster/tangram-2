@@ -49,7 +49,8 @@ var ru = {
 	people: 'люди',
 	rabbits: 'кроллики',
 	riders: 'наездники',
-	fish: 'рыбы',
+	fish: 'рыба',
+	tree: 'дерево',
 
 	// settings
 
