@@ -51,6 +51,7 @@ var ru = {
 	riders: 'наездники',
 	fish: 'рыба',
 	tree: 'дерево',
+	ship: 'корабль',
 
 	// settings
 

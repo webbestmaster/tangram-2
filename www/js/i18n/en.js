@@ -51,6 +51,7 @@ var en = {
 	riders: 'riders',
 	fish: 'fish',
 	tree: 'tree',
+	ship: 'ship',
 
 	// settings
 

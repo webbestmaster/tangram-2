@@ -7,7 +7,7 @@ var log,
 	gOldOnError,
 	slice = Array.prototype.slice,
 	logger = {
-		isEnable: info.get('dev-mode'),
+		isEnable: !info.get('dev-mode'),
 		remoteLog: false,
 		xhr: new XMLHttpRequest(),
 		log: function () {
