@@ -52,6 +52,7 @@ var en = {
 	fish: 'fish',
 	tree: 'tree',
 	ship: 'ship',
+	letters: 'letters',
 
 	// settings
 

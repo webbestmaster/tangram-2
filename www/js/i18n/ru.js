@@ -52,6 +52,7 @@ var ru = {
 	fish: 'рыба',
 	tree: 'дерево',
 	ship: 'корабль',
+	letters: 'буквы',
 
 	// settings
 

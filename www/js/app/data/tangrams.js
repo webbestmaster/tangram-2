@@ -21,6 +21,7 @@ import rider from './sections/rider';
 import fish from './sections/fish';
 import tree from './sections/tree';
 import ship from './sections/ship';
+import letters from './sections/letters';
 
 var tangrams = {
 
@@ -46,8 +47,8 @@ var tangrams = {
 		rider,
 		fish,
 		tree,
-		ship
-
+		ship,
+		letters
 
 	]
 
