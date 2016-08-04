@@ -50,9 +50,10 @@ var en = {
 	rabbits: 'rabbits',
 	riders: 'riders',
 	fish: 'fish',
-	tree: 'tree',
-	ship: 'ship',
+	trees: 'trees',
+	ships: 'ships',
 	letters: 'letters',
+	numbers: 'numbers',
 
 	// settings
 

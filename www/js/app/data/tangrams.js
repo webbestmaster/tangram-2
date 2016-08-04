@@ -10,7 +10,7 @@ import birth_3 from './sections/birth-3';
 import birth_4 from './sections/birth-4';
 import cat from './sections/cat';
 import chinesePerson from './sections/chinese-person';
-import dancingHumans from './sections/dancing-humans';
+import dancingHuman from './sections/dancing-human';
 import dog from './sections/dog';
 import face from './sections/face';
 import people_1 from './sections/people-1';
@@ -21,7 +21,8 @@ import rider from './sections/rider';
 import fish from './sections/fish';
 import tree from './sections/tree';
 import ship from './sections/ship';
-import letters from './sections/letters';
+import letter from './sections/letter';
+import number from './sections/number';
 
 var tangrams = {
 
@@ -37,7 +38,7 @@ var tangrams = {
 		birth_4,
 		cat,
 		chinesePerson,
-		dancingHumans,
+		dancingHuman,
 		dog,
 		face,
 		people_1,
@@ -48,7 +49,8 @@ var tangrams = {
 		fish,
 		tree,
 		ship,
-		letters
+		letter,
+		number
 
 	]
 

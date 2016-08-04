@@ -49,11 +49,13 @@ var ru = {
 	people: 'люди',
 	rabbits: 'кроллики',
 	riders: 'наездники',
-	fish: 'рыба',
-	tree: 'дерево',
-	ship: 'корабль',
+	fish: 'рыбы',
+	trees: 'деревья',
+	ships: 'корабли',
 	letters: 'буквы',
+	numbers: 'цифры',
 
+	
 	// settings
 
 	settings: 'настройки',
