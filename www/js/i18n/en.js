@@ -54,6 +54,7 @@ var en = {
 	ships: 'ships',
 	letters: 'letters',
 	numbers: 'numbers',
+	buildings: 'buildings',
 
 	// settings
 

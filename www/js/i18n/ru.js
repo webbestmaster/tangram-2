@@ -54,8 +54,8 @@ var ru = {
 	ships: 'корабли',
 	letters: 'буквы',
 	numbers: 'цифры',
+	buildings: 'здания',
 
-	
 	// settings
 
 	settings: 'настройки',
