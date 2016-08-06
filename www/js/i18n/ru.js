@@ -55,6 +55,7 @@ var ru = {
 	letters: 'буквы',
 	numbers: 'цифры',
 	buildings: 'здания',
+	figures: 'фигуры',
 
 	// settings
 

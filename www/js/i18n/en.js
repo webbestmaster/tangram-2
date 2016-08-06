@@ -55,6 +55,7 @@ var en = {
 	letters: 'letters',
 	numbers: 'numbers',
 	buildings: 'buildings',
+	figures: 'figures',
 
 	// settings
 

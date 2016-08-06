@@ -24,6 +24,7 @@ import ship from './sections/ship';
 import letter from './sections/letter';
 import number from './sections/number';
 import buildings from './sections/buildings';
+import figures from './sections/figures';
 
 var tangrams = {
 
@@ -52,7 +53,8 @@ var tangrams = {
 		ship,
 		letter,
 		number,
-		buildings
+		buildings,
+		figures
 
 	]
 
