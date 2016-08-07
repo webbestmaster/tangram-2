@@ -23,8 +23,9 @@ import tree from './sections/tree';
 import ship from './sections/ship';
 import letter from './sections/letter';
 import number from './sections/number';
-import buildings from './sections/buildings';
-import figures from './sections/figures';
+import building from './sections/building';
+import figure from './sections/figure';
+import tool from './sections/tool';
 
 var tangrams = {
 
@@ -53,8 +54,9 @@ var tangrams = {
 		ship,
 		letter,
 		number,
-		buildings,
-		figures
+		building,
+		figure,
+		tool
 
 	]
 

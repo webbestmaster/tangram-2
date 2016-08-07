@@ -56,6 +56,7 @@ var en = {
 	numbers: 'numbers',
 	buildings: 'buildings',
 	figures: 'figures',
+	tools: 'tools',
 
 	// settings
 
