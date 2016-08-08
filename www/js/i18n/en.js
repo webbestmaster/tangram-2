@@ -57,6 +57,9 @@ var en = {
 	buildings: 'buildings',
 	figures: 'figures',
 	tools: 'tools',
+	dishes: 'dishes',
+	footwear: 'footwear',
+	weapons: 'weapons',
 
 	// settings
 

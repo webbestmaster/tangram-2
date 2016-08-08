@@ -57,6 +57,9 @@ var ru = {
 	buildings: 'здания',
 	figures: 'фигуры',
 	tools: 'инструменты',
+	dishes: 'посуда',
+	footwear: 'обувь',
+	weapons: 'орижие',
 
 	// settings
 

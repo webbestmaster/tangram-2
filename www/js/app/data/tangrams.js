@@ -26,6 +26,9 @@ import number from './sections/number';
 import building from './sections/building';
 import figure from './sections/figure';
 import tool from './sections/tool';
+import weapon from './sections/weapon';
+import footwear from './sections/footwear';
+import dishes from './sections/dishes';
 
 var tangrams = {
 
@@ -56,7 +59,10 @@ var tangrams = {
 		number,
 		building,
 		figure,
-		tool
+		tool,
+		weapon,
+		footwear,
+		dishes
 
 	]
 
