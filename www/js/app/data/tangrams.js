@@ -29,6 +29,7 @@ import tool from './sections/tool';
 import weapon from './sections/weapon';
 import footwear from './sections/footwear';
 import dishes from './sections/dishes';
+import candle from './sections/candle';
 
 var tangrams = {
 
@@ -62,7 +63,8 @@ var tangrams = {
 		tool,
 		weapon,
 		footwear,
-		dishes
+		dishes,
+		candle
 
 	]
 

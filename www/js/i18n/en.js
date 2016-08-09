@@ -60,6 +60,7 @@ var en = {
 	dishes: 'dishes',
 	footwear: 'footwear',
 	weapons: 'weapons',
+	candles: 'candles',
 
 	// settings
 
