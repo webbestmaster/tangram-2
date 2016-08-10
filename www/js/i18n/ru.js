@@ -63,6 +63,7 @@ var ru = {
 	candles: 'свечи',
 	lamps: 'лампы',
 	teapots: 'чайники',
+	kites: 'воздушные змеи',
 
 	// settings
 

@@ -63,6 +63,7 @@ var en = {
 	candles: 'candles',
 	lamps: 'lamps',
 	teapots: 'teapots',
+	kites: 'kites',
 
 	// settings
 

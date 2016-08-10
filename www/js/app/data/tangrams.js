@@ -32,6 +32,7 @@ import dishes from './sections/dishes';
 import candle from './sections/candle';
 import lamp from './sections/lamp';
 import teapot from './sections/teapot';
+import kite from './sections/kite';
 
 var tangrams = {
 
@@ -68,7 +69,8 @@ var tangrams = {
 		dishes,
 		candle,
 		lamp,
-		teapot
+		teapot,
+		kite
 
 	]
 
