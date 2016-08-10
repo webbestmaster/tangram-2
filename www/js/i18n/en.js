@@ -61,6 +61,8 @@ var en = {
 	footwear: 'footwear',
 	weapons: 'weapons',
 	candles: 'candles',
+	lamps: 'lamps',
+	teapots: 'teapots',
 
 	// settings
 

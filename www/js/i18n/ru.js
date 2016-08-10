@@ -61,6 +61,8 @@ var ru = {
 	footwear: 'обувь',
 	weapons: 'орижие',
 	candles: 'свечи',
+	lamps: 'лампы',
+	teapots: 'чайники',
 
 	// settings
 
