@@ -374,7 +374,7 @@ var SectionsView = BaseView.extend({
 
 	},
 
-	savePreviews: function () {
+	_savePreviews: function () {
 
 		var self = this;
 
