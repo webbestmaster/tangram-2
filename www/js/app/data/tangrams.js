@@ -20,11 +20,14 @@ import rabbit from './sections/rabbit';
 import rider from './sections/rider';
 import fish from './sections/fish';
 import tree from './sections/tree';
-import ship from './sections/ship';
+import ship_1 from './sections/ship-1';
+import ship_2 from './sections/ship-2';
 import letter from './sections/letter';
 import number from './sections/number';
 import building from './sections/building';
-import figure from './sections/figure';
+import figure_1 from './sections/figure-1';
+import figure_2 from './sections/figure-2';
+import figure_3 from './sections/figure-3';
 import tool from './sections/tool';
 import weapon from './sections/weapon';
 import footwear from './sections/footwear';
@@ -58,11 +61,14 @@ var tangrams = {
 		rider,
 		fish,
 		tree,
-		ship,
+		ship_1,
+		ship_2,
 		letter,
 		number,
 		building,
-		figure,
+		figure_1,
+		figure_2,
+		figure_3,
 		tool,
 		weapon,
 		footwear,

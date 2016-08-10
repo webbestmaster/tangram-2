@@ -3,7 +3,7 @@
 
 var section = {
 
-	id: 'people',
+	id: 'people-1',
 	name: 'people #1',
 	data: [
 
