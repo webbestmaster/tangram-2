@@ -58,6 +58,8 @@ body {
   width: 100%;
   //transform: translate3d(0, -620%, 0);
   @extend .luxury-3d-text;
+  line-height: 100%;
+  margin-top: -9%;
 }
 
 .screen--button-wrapper_split {

@@ -374,7 +374,7 @@ var SectionsView = BaseView.extend({
 
 	},
 
-	_savePreviews: function () {
+	savePreviews: function () {
 
 		var self = this;
 
@@ -432,7 +432,9 @@ var SectionsView = BaseView.extend({
 
 			image.onload = null;
 
-			defer.resolve();
+			setTimeout(function () {
+				defer.resolve();
+			}, 20);
 
 		};
 		// Init the image with our SVG
