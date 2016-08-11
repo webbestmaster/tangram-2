@@ -298,7 +298,7 @@ var win = window,
 			view.publish('hide-main-view');
 			view.subscribe('hide-main-view', view.hide);
 
-			view.bindLoadImages();
+			// view.bindLoadImages();
 
 			view.$wrapper.append(view.$el);
 			//view.util.setSizes();
@@ -307,6 +307,7 @@ var win = window,
 
 		},
 
+/*
 		bindLoadImages: function () {
 
 			var view = this,
@@ -315,7 +316,9 @@ var win = window,
 			$images.one('load', view.bindLoadImage);
 
 		},
+*/
 
+/*
 		bindLoadImage: function (e) {
 
 			$(e.currentTarget)
@@ -323,6 +326,7 @@ var win = window,
 				.off();
 
 		},
+*/
 
 		showAppearAnimation: function () {
 

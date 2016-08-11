@@ -116,7 +116,8 @@
 					{{? isSections}}
 						<div class="section-preview" data-route="sections/{{= item.id }}">
 							<div class="section-preview-done-info">{{= item.doneTangramsHashs.length }} / {{= item.length }}</div>
-							<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+							<img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+							<!--<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">-->
 							<!--<div class="section-preview-image" style="background-image: url(i/item-preview/{{= item.preview }}.png);">&nbsp;</div>-->
 							<p class="section-preview-name ellipsis">{{= it.lang.getPartial(item.name) }}</p>
 						</div>
@@ -125,7 +126,8 @@
 							{{? item.preview.svgText }}
 								{{= item.preview.svgText }}
 							{{??}}
-								<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+								<img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+								<!--<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">-->
 							{{?}}
 							<div class="section-preview-star">
 								{{ var stars = item.stars; }}
@@ -281,12 +283,14 @@
 
 						{{? number === tangramTexture }}
 							<div data-index="{{= number }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active">
-								<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
+								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
+								<!--<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>-->
 								<img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
 							</div>
 						{{??}}
 							<div data-index="{{= number }}" class="screen--button js-tangram-texture-preview tangram-texture-preview">
-								<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
+								<!--<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>-->
+								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
 								<img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
 							</div>
 						{{?}}
