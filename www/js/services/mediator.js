@@ -24,7 +24,7 @@ function publish(channel) {
 	var list = mediator.channels[channel],
 		args;
 
-	log('publish -', channel, arguments);
+	// log('publish -', channel, arguments);
 
 	if ( !list ) {
 		return this;
