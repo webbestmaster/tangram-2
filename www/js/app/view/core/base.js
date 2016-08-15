@@ -2,7 +2,7 @@
 /*global window */
 
 import Backbone from './../../../lib/backbone';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import _ from './../../../lib/lodash';
 import info from './../../../services/info';
 //import tm from './../../../services/template-master';
@@ -112,7 +112,7 @@ var win = window,
 				noScrollEvents = proto.extraEvents.noScroll,
 				noScrollSelector = proto.selectors.noScroll;
 
-			view.events = $.extend({}, proto.events, view.events);
+			view.events = _.extend({}, proto.events, view.events);
 
 			// prepare extra events from eventTypes
 			_.each(view.events, function (functionName, eventAndSelector) {
@@ -133,7 +133,7 @@ var win = window,
 
 			view.events = newEvents;
 
-			view.selectors = $.extend({}, proto.selectors, view.selectors);
+			view.selectors = _.extend({}, proto.selectors, view.selectors);
 
 			view.attr = {
 				animations: []

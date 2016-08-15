@@ -6,7 +6,7 @@ import tm from './../../../services/template-master';
 import lang from './../../../services/lang';
 import log from './../../../services/log';
 import device from './../../../services/device';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import info from './../../../services/info';
 import util from './../../../services/util';
 import Queue from './../../../lib/queue';
@@ -143,37 +143,37 @@ var HomeView = BaseView.extend({
 
 	}
 
-/*
-	animate: function () {
+	/*
+	 animate: function () {
 
-		var view = this,
-			defer = $.Deferred(),
-			tlLetter,
-			tlBtn;
+	 var view = this,
+	 defer = $.Deferred(),
+	 tlLetter,
+	 tlBtn;
 
-		if (info.get('home-animation-shown', true)) {
-			defer.resolve();
-			return defer.promise();
-		}
+	 if (info.get('home-animation-shown', true)) {
+	 defer.resolve();
+	 return defer.promise();
+	 }
 
-		info.set('home-animation-shown', true, true);
+	 info.set('home-animation-shown', true, true);
 
-		tlLetter = new TimelineLite();
-		tlBtn = new TimelineLite();
+	 tlLetter = new TimelineLite();
+	 tlBtn = new TimelineLite();
 
-		tlLetter.staggerTo('.anim-letter', 0.4, {top: 0, rotation: 360, ease: Back.easeOut}, 0.1); // 1.1
-		tlBtn.staggerTo('.anim-btn', 0.7, {left: 0, ease: Power4.easeOut}, 0.2); // 1.3
+	 tlLetter.staggerTo('.anim-letter', 0.4, {top: 0, rotation: 360, ease: Back.easeOut}, 0.1); // 1.1
+	 tlBtn.staggerTo('.anim-btn', 0.7, {left: 0, ease: Power4.easeOut}, 0.2); // 1.3
 
-		view.pushAnimation(tlLetter, tlBtn);
+	 view.pushAnimation(tlLetter, tlBtn);
 
-		setTimeout(function () {
-			defer.resolve();
-		}, 1.3e3);
+	 setTimeout(function () {
+	 defer.resolve();
+	 }, 1.3e3);
 
-		return defer.promise();
+	 return defer.promise();
 
-	}
-*/
+	 }
+	 */
 
 });
 

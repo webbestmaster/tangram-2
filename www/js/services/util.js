@@ -1,7 +1,7 @@
 'use strict';
 /*global window */
 
-import $ from './../lib/jbone';
+import $ from './../lib/jquery';
 import _ from './../lib/lodash';
 import Queue from './../lib/queue';
 // tangram

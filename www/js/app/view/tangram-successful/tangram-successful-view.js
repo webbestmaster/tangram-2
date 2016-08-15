@@ -5,7 +5,7 @@ import BaseView from './../core/base';
 import tm from './../../../services/template-master';
 import lang from './../../../services/lang';
 import mediator from './../../../services/mediator';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import _ from './../../../lib/lodash';
 import info from './../../../services/info';
 import tangrams from './../../data/tangrams';

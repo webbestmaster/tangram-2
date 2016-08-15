@@ -9,7 +9,7 @@ import log from './../../../services/log';
 import info from './../../../services/info';
 import Queue from './../../../lib/queue';
 import sha1 from './../../../lib/sha1';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 
 var sectionViewProto = SectionView.prototype,
 	previewSectionHelper = {

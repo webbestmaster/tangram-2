@@ -14,7 +14,7 @@ import lang from './../../../services/lang';
 import util from './../../../services/util';
 import tangrams from './../../data/tangrams';
 import _ from './../../../lib/lodash';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 
 var tanCollectionProto = TanCollection.prototype;
 

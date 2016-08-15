@@ -2,7 +2,7 @@
 /*global window */
 
 import BaseView from './base';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import _ from './../../../lib/lodash';
 import lang from './../../../services/lang';
 import info from './../../../services/info';

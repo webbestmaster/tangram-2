@@ -10,7 +10,7 @@ import sha1 from './../../../lib/sha1';
 import tangrams from './../../data/tangrams';
 import tanCollection from './../tangram/models/tan-collection';
 import _ from './../../../lib/lodash';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import Queue from './../../../lib/queue';
 
 var tanCollectionProto = tanCollection.prototype;

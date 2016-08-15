@@ -15,7 +15,7 @@ import shim from './lib/shim';
 import shimES5 from './lib/shim-es5';
 import shamES5 from './lib/sham-es5';
 import _ from './lib/lodash';
-import $ from './lib/jbone';
+import $ from './lib/jquery';
 import Deferred from './lib/deferred';
 import Backbone from './lib/backbone';
 import fastclick from './lib/fastclick';

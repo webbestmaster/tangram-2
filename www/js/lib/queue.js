@@ -2,7 +2,7 @@
 /*global window */
 /*global */
 
-import $ from './jbone';
+import $ from './jquery';
 
 function Queue() {
 

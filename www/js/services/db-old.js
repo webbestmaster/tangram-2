@@ -2,7 +2,7 @@
 /*global window */
 /*global */
 
-import $ from './../lib/jbone';
+import $ from './../lib/jquery';
 
 var db = {
 

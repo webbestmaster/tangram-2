@@ -4,7 +4,7 @@
 import BaseView from './../core/base';
 import tm from './../../../services/template-master';
 import lang from './../../../services/lang';
-import $ from './../../../lib/jbone';
+import $ from './../../../lib/jquery';
 import info from './../../../services/info';
 
 var SettingsView = BaseView.extend({
