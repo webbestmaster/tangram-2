@@ -49,6 +49,7 @@ info = {
 		info.setOS();
 		info.detectCssJsPrefix();
 		info.detectTransitionEndEventName();
+		info.detectTransformName();
 		info.detectAnimationEventNames();
 
 		//set settings

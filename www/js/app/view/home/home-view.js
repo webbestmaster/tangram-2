@@ -147,21 +147,20 @@ var HomeView = BaseView.extend({
 
 	animateUI: function () {
 
-		var view = this;
+		// var nodes = $('.js-screen--button, .js-title-game-name-letter, .js-market-link'),
+		// var nodes = $('.js-title-game-name-letter'),
+		var transformName = info.get('transform', true),
+			letterWrapper = $('.title-game-name').get(0),
+			buttons = $('.screen--button');
 
-		var nodes = $('.js-title-game-name span');
-
-		nodes.each(function (index) {
-
-			new TWEEN.tween
-
-		})
-
-
-
-
-
-
+		new TWEEN.Tween({p:1})
+			.to({p:0}, 1.5e3)
+			.easing(TWEEN.Easing.Bounce.Out)
+			.onUpdate(function() {
+				letterWrapper.style[transformName] = 'translate3d(0, ' + -this.p * 300 + '%, 0)';
+				buttons.css(transformName, 'translate3d(0, ' + this.p * 1000 + '%, 0)');
+			})
+			.start();
 
 	}
 

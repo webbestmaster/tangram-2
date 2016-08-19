@@ -49,6 +49,15 @@ Deferred.installInto($);
 
 window.addEventListener('load', function () {
 
+    /*jslint white: true, nomen: true */
+    (function startTween() {
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+    }());
+
     // small init
     var win = window;
     new FastClick(win.document.body);
