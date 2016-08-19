@@ -153,6 +153,16 @@ info = {
 
 	},
 
+	detectTransformName: function () {
+
+		if (doc.createElement('div').style.WebkitTransition === undefined) {
+			this.set('transform', 'transform', true);
+		} else {
+			this.set('transform', 'webkitTransform', true);
+		}
+
+	},
+
 	detectAnimationEventNames: function () {
 
 		if (doc.createElement('div').style.WebkitAnimation === undefined) {

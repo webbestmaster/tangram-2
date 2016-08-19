@@ -16,12 +16,15 @@ import shimES5 from './lib/shim-es5';
 import shamES5 from './lib/sham-es5';
 import _ from './lib/lodash';
 import $ from './lib/jquery';
+import Promise from './lib/promise-polyfill';
+import rAF from './lib/raf-polyfill';
 import Deferred from './lib/deferred';
 import Backbone from './lib/backbone';
 import fastclick from './lib/fastclick';
 import doT from './lib/dot';
 import Queue from './lib/queue';
 import Swiper from './lib/swiper';
+import Tween from './lib/Tween';
 
 // init all services
 import device from './services/device';

@@ -40,6 +40,8 @@ var HomeView = BaseView.extend({
 
 				util.preLoadTangramParts(info.get('tangramTexture'));
 
+				view.animateUI();
+
 				if (view.get('isHidden')) {
 					return;
 				}
@@ -140,6 +142,26 @@ var HomeView = BaseView.extend({
 		});
 
 		return defer.promise();
+
+	},
+
+	animateUI: function () {
+
+		var view = this;
+
+		var nodes = $('.js-title-game-name span');
+
+		nodes.each(function (index) {
+
+			new TWEEN.tween
+
+		})
+
+
+
+
+
+
 
 	}
 
