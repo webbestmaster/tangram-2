@@ -38,7 +38,7 @@ var HomeView = BaseView.extend({
 			// .then(view.animate.bind(view))
 			.then(function () {
 
-				util.preLoadTangramParts(info.get('tangramTexture'));
+				// util.preLoadTangramParts(info.get('tangramTexture'));
 
 				view.animateUI();
 
@@ -150,15 +150,20 @@ var HomeView = BaseView.extend({
 		// var nodes = $('.js-screen--button, .js-title-game-name-letter, .js-market-link'),
 		// var nodes = $('.js-title-game-name-letter'),
 		var transformName = info.get('transform', true),
-			letterWrapper = $('.title-game-name').get(0),
-			buttons = $('.screen--button');
+			$fromLeft = $('.js-anim-from-left'),
+			$fromRight = $('.js-anim-from-right');
 
-		new TWEEN.Tween({p:1})
-			.to({p:0}, 1.5e3)
-			.easing(TWEEN.Easing.Bounce.Out)
+		new TWEEN.Tween({p:100})
+			.to({p:0}, 1e3)
+			// .easing(TWEEN.Easing.Bounce.Out)
+			.easing(TWEEN.Easing.Back.Out)
 			.onUpdate(function() {
-				letterWrapper.style[transformName] = 'translate3d(0, ' + -this.p * 300 + '%, 0)';
-				buttons.css(transformName, 'translate3d(0, ' + this.p * 1000 + '%, 0)');
+				$fromLeft.css(transformName, 'translate3d(' + -this.p + '%, 0, 0)');
+				$fromRight.css(transformName, 'translate3d(' + this.p + '%, 0, 0)');
+			})
+			.onComplete(function () {
+				$fromLeft.css(transformName, 'none');
+				$fromRight.css(transformName, 'none');
 			})
 			.start();
 
