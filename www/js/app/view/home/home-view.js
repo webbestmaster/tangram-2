@@ -26,6 +26,8 @@ var HomeView = BaseView.extend({
 
 		var view = this;
 
+		view.set('tweens', []);
+
 		view.setElement(tm.get('home')({
 			lang: lang,
 			info: info,
@@ -149,23 +151,31 @@ var HomeView = BaseView.extend({
 
 		// var nodes = $('.js-screen--button, .js-title-game-name-letter, .js-market-link'),
 		// var nodes = $('.js-title-game-name-letter'),
-		var transformName = info.get('transform', true),
-			$fromLeft = $('.js-anim-from-left'),
-			$fromRight = $('.js-anim-from-right');
+		var view = this,
+			transformName = info.get('transform', true),
+			$fromRight = $('.js-anim-from-right'),
+			tweens = view.get('tweens');
 
-		new TWEEN.Tween({p:100})
-			.to({p:0}, 1e3)
-			// .easing(TWEEN.Easing.Bounce.Out)
-			.easing(TWEEN.Easing.Back.Out)
-			.onUpdate(function() {
-				$fromLeft.css(transformName, 'translate3d(' + -this.p + '%, 0, 0)');
-				$fromRight.css(transformName, 'translate3d(' + this.p + '%, 0, 0)');
-			})
-			.onComplete(function () {
-				$fromLeft.css(transformName, 'none');
-				$fromRight.css(transformName, 'none');
-			})
-			.start();
+		$fromRight.each(function (index, node) {
+
+			var tween = new TWEEN.Tween({p:100})
+				.to({p:0}, 0.7e3)
+				.delay((index + 7) * 100 )
+				// .easing(TWEEN.Easing.Bounce.Out)
+				.easing(TWEEN.Easing.Back.Out)
+				.onUpdate(function() {
+					node.style[transformName] = 'translate3d(' + this.p + '%, 0, 0)';
+				})
+				.onComplete(function () {
+					node.style[transformName] = 'none';
+				})
+				.start();
+
+			tweens.push(tween);
+
+		});
+
+		view.set('tweens', tweens);
 
 	}
 

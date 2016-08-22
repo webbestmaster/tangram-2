@@ -266,6 +266,8 @@ var win = window,
 
 			view.set('isHidden', true);
 
+			view.untween();
+
 			view.unsubscribe();
 			mediator.uninstallFrom(view);
 
@@ -304,6 +306,21 @@ var win = window,
 			//view.util.setSizes();
 			//view.util.toTop();
 			return view.showAppearAnimation();
+
+		},
+
+		untween: function () {
+
+			var view = this,
+				tweens = view.get('tweens');
+
+			if (!tweens) {
+				return;
+			}
+
+			tweens.forEach(TWEEN.remove);
+
+			view.set('tweens', null);
 
 		},
 

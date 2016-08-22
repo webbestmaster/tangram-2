@@ -47,6 +47,8 @@ import previewSectionHelper from './app/view/sections/preview-section-helper';
 import appCache from './services/app-cache';
 Deferred.installInto($);
 
+info.set('screenAnimation', false);
+
 window.addEventListener('load', function () {
 
     /*jslint white: true, nomen: true */
