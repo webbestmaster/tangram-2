@@ -6,6 +6,7 @@ import tm from './../../../services/template-master';
 import lang from './../../../services/lang';
 import $ from './../../../lib/jquery';
 import info from './../../../services/info';
+import util from './../../../services/util';
 
 var SettingsView = BaseView.extend({
 
@@ -16,15 +17,45 @@ var SettingsView = BaseView.extend({
 
 	initialize: function () {
 
-		var view = this;
+		var view = this,
+			i,
+			images;
+
+		view.set('tweens', []);
 
 		view.setElement(tm.get('settings')({
 			lang: lang,
 			info: info
 		}));
 
-		view.render();
-		view.setVerticalSwiper();
+		i = 9;
+		images = ['tangram-frame.svg'];
+		while ( i ) {
+			i -= 1;
+			images[images.length] = 'tangram-texture/' + i + '.jpg';
+		}
+
+		images = images.map(function (path) {
+			return 'i/' + path;
+		});
+
+		util.loadImages(images)
+			.then(function () {
+				return view.render();
+			})
+			.then(function () {
+				view.animateUI();
+
+				if (view.get('isHidden')) {
+					return;
+				}
+
+				view.publish('previewSectionHelper:initialize');
+				view.rateUsPopup();
+
+			});
+
+		// view.setVerticalSwiper();
 
 		return BaseView.prototype.initialize.apply(view, arguments);
 
@@ -52,6 +83,16 @@ var SettingsView = BaseView.extend({
 		lang.set(language);
 
 		Backbone.history.loadUrl();
+
+	},
+
+	animateUI: function () {
+
+		var tweens = this.get('tweens');
+
+		tweens.push.apply(tweens, TweenMax.staggerTo('.js-anim-from-top', 0.8, {y: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.1));
+
+		tweens.push.apply(tweens, TweenMax.staggerTo('.js-anim-from-right', 0.8, {x: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.1));
 
 	}
 

@@ -149,7 +149,7 @@ var HomeView = BaseView.extend({
 
 		var tweens = this.get('tweens');
 
-		tweens.push.apply(tweens, TweenMax.staggerTo('.js-anim-from-right', 0.8, {x: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.3))
+		tweens.push.apply(tweens, TweenMax.staggerTo('.js-anim-from-right', 0.8, {x: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.1))
 
 	}
 
