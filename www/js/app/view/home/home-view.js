@@ -149,33 +149,11 @@ var HomeView = BaseView.extend({
 
 	animateUI: function () {
 
-		// var nodes = $('.js-screen--button, .js-title-game-name-letter, .js-market-link'),
-		// var nodes = $('.js-title-game-name-letter'),
-		var view = this,
-			transformName = info.get('transform', true),
-			$fromRight = $('.js-anim-from-right'),
-			tweens = view.get('tweens');
+		var tweens = this.get('tweens');
 
-		$fromRight.each(function (index, node) {
-
-			var tween = new TWEEN.Tween({p:100})
-				.to({p:0}, 0.7e3)
-				.delay((index + 7) * 100 )
-				// .easing(TWEEN.Easing.Bounce.Out)
-				.easing(TWEEN.Easing.Back.Out)
-				.onUpdate(function() {
-					node.style[transformName] = 'translate3d(' + this.p + '%, 0, 0)';
-				})
-				.onComplete(function () {
-					node.style[transformName] = 'none';
-				})
-				.start();
-
-			tweens.push(tween);
-
-		});
-
-		view.set('tweens', tweens);
+		tweens.push(
+			TweenMax.staggerTo('.js-anim-from-right', 0.8, {x: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.3)
+		);
 
 	}
 

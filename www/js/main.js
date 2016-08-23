@@ -24,7 +24,6 @@ import fastclick from './lib/fastclick';
 import doT from './lib/dot';
 import Queue from './lib/queue';
 import Swiper from './lib/swiper';
-import Tween from './lib/Tween';
 
 // init all services
 import device from './services/device';
@@ -50,15 +49,6 @@ Deferred.installInto($);
 info.set('screenAnimation', false);
 
 window.addEventListener('load', function () {
-
-    /*jslint white: true, nomen: true */
-    (function startTween() {
-        function animate(time) {
-            requestAnimationFrame(animate);
-            TWEEN.update(time);
-        }
-        requestAnimationFrame(animate);
-    }());
 
     // small init
     var win = window;
