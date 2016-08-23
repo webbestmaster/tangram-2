@@ -35,13 +35,11 @@ var HomeView = BaseView.extend({
 			device: device
 		}));
 
-		view
-			.render()
-			// .then(view.animate.bind(view))
+		util.loadImages(['i/main-bg.jpg', 'font/origram.otf', 'i/no-ads.png'])
 			.then(function () {
-
-				// util.preLoadTangramParts(info.get('tangramTexture'));
-
+				return view.render();
+			})
+			.then(function () {
 				view.animateUI();
 
 				if (view.get('isHidden')) {

@@ -41,7 +41,7 @@
 }
 
 .show-view-animation {
-  @include prefix(animation-duration, 0.7s);
+  @include prefix(animation-duration, 0.3s);
   @include prefix(animation-iteration-count, 1);
   @include prefix(animation-name, screen-show-in);
   @include prefix(animation-fill-mode, forwards);
