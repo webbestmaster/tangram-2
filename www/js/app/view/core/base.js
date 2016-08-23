@@ -318,7 +318,9 @@ var win = window,
 				return;
 			}
 
-			tweens.forEach(TWEEN.remove);
+			tweens.forEach(function (tween) {
+				tween.kill();
+			});
 
 			view.set('tweens', null);
 
