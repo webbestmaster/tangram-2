@@ -44,7 +44,7 @@ var SettingsView = BaseView.extend({
 				return view.render();
 			})
 			.then(function () {
-				view.animateUI();
+				// view.animateUI();
 
 				if (view.get('isHidden')) {
 					return;
@@ -84,8 +84,9 @@ var SettingsView = BaseView.extend({
 
 		Backbone.history.loadUrl();
 
-	},
+	}
 
+/*
 	animateUI: function () {
 
 		var tweens = this.get('tweens');
@@ -95,6 +96,7 @@ var SettingsView = BaseView.extend({
 		tweens.push.apply(tweens, TweenMax.staggerTo('.js-anim-from-right', 0.8, {x: 0, ease: Back.easeOut.config(1.4), force3D: true}, 0.1));
 
 	}
+*/
 
 });
 
