@@ -99,7 +99,7 @@ var TangramView = BaseView.extend({
 				view.set('timer', timer);
 				tanCollection.setData('timer', timer);
 				timer.start();
-			}})).staggerFromTo(tans, 0.6, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.3);
+			}})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
 
 		});
 

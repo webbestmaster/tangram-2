@@ -57,7 +57,9 @@ var SectionsView = BaseView.extend({
 			}));
 		}
 
-		util.loadImages(items.map(function (item) {
+		util.loadImages(items.filter(function (item) {
+			return typeof item.preview === 'string';
+		}).map(function (item) {
 			return 'i/item-preview/' + item.preview + '.png';
 		})).then(function () {
 			view.render();
