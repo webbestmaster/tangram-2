@@ -49,7 +49,7 @@ var TangramView = BaseView.extend({
 				sizeX: sizeX,
 				sizeY: sizeY
 			},
-			patternSvg,
+			// patternSvg,
 			sectionId = data.id,
 			index = data.index,
 			pattern = _.find(tangrams.data, function (data) {
@@ -87,10 +87,24 @@ var TangramView = BaseView.extend({
 		tanCollection.initPattern(pattern);
 		tanCollection.drawPattern().then(function (canvas) {
 			view.$el.append(canvas);
+			tanCollection.drawTans();
+			var tans = view.$el.find('.tan').sort(function () {
+				return Math.random() - 0.5;
+			});
+
+			Array.prototype.unshift.call(tans, canvas);
+
+			(new TimelineMax({onComplete: function () {
+				var timer = new Timer(view.$el.find('.js-timer'));
+				view.set('timer', timer);
+				tanCollection.setData('timer', timer);
+				timer.start();
+			}})).staggerFromTo(tans, 0.6, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.3);
+
 		});
+
 		tanCollection.createTans();
 		tanCollection.addDrawFieldTo(view.$el);
-		tanCollection.drawTans();
 		tanCollection.setData('rotater', rotater);
 
 		view.set('$menuButton', view.$el.find('.js-tangram-menu-button'));
@@ -104,13 +118,7 @@ var TangramView = BaseView.extend({
 		//view.subscribe('tangram-is-done', view.hideMenuButton);
 		view.subscribe('tangram-is-done', view.hideButtons);
 
-		timer = new Timer(view.$el.find('.js-timer'));
-		view.set('timer', timer);
-		tanCollection.setData('timer', timer);
-
-		view.render().then(function () {
-			timer.start();
-		});
+		view.render();
 
 		return BaseView.prototype.initialize.apply(view, arguments);
 

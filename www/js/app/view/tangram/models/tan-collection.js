@@ -807,8 +807,8 @@ var TanCollection = Backbone.Collection.extend({
 
 		// Setup canvas
 		var canvas = document.createElement('canvas');
-		canvas.width = width;
-		canvas.height = height;
+		canvas.width = width * 2;
+		canvas.height = height * 2;
 
 		var defer = $.Deferred();
 
@@ -820,7 +820,7 @@ var TanCollection = Backbone.Collection.extend({
 		// BEFORE attaching an image source
 		image.onload = function() {
 
-			context.drawImage(image, 0, 0);
+			context.drawImage(image, 0, 0, width * 2, height * 2);
 
 			image.onload = null;
 
