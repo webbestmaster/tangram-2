@@ -93,7 +93,7 @@ var TangramView = BaseView.extend({
 		tanCollection.drawPattern().then(function (canvas) {
 			view.$el.append(canvas);
 			tanCollection.drawTans();
-			var tans = view.$el.find('.tan').sort(function () {
+			var tans = view.$el.find('.js-tan').sort(function () {
 				return Math.random() - 0.5;
 			});
 
@@ -101,6 +101,7 @@ var TangramView = BaseView.extend({
 
 			(new TimelineMax({onComplete: function () {
 				timer.start();
+                $(tans).css('opacity', '');
 			}})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
 
 		});

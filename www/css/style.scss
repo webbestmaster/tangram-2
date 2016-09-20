@@ -288,8 +288,12 @@ body {
   @include prefix(background-size, 100% 100%);
 }
 
-.tan_active {
+.tan-shadow {
   opacity: 0.5;
+}
+
+.tan_active {
+  //opacity: 0.5;
 }
 
 .market-link {

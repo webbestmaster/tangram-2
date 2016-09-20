@@ -182,7 +182,7 @@ var Tan = Backbone.Model.extend({
 
 		tan.drawActiveDeActive(isActive);
 
-		tan.moveToUpDown(isActive)
+		tan.moveToUpDown(isActive);
 
 	},
 
@@ -200,9 +200,13 @@ var Tan = Backbone.Model.extend({
 			return;
 		}
 
-		var node = this.get('node');
+		var tan = this,
+            node = tan.get('node'),
+		    tanShadow = tan.get('tan-shadow'),
+            parent = node.parentElement;
 
-		node.parentElement.appendChild(node);
+        parent.appendChild(tanShadow);
+        parent.appendChild(node);
 
 	},
 
@@ -322,16 +326,16 @@ var Tan = Backbone.Model.extend({
 
 		var tan = this,
 			tanNode = tan.get('node'),
+			tanShadow,
+			$tanShadow,
 			$tanNode;
 			//polygonCoordinates = tan.getInitialPolygonCoordinates();
 
 		if (!tanNode) {
 			tanNode = document.createElement('div');
-			tanNode.innerHTML = '&nbsp;'
+			tanNode.innerHTML = '&nbsp;';
 			$tanNode = $(tanNode);
 			tan.set('node', tanNode);
-			tan.setStyles();
-			tan.initPositionIn();
 
 			$tanNode.css({
 				width: tan.get('sizeX') + 'px',
@@ -339,9 +343,27 @@ var Tan = Backbone.Model.extend({
 				backgroundImage: 'url(i/tan-textures/texture-' + info.get('tangramTexture') + '-' + tan.get('key') + '.png)'
 			});
 
-			$tanNode.addClass('tan');
+			$tanNode.addClass('tan js-tan');
 
+			// shadow
+			tanShadow = document.createElement('div');
+			tanShadow.innerHTML = '&nbsp;';
+			$tanShadow = $(tanShadow);
+			tan.set('tan-shadow', tanShadow);
+
+			$tanShadow.css({
+				width: tan.get('sizeX') + 'px',
+				height: tan.get('sizeY') + 'px',
+				backgroundImage: 'url(i/tan-textures/texture-' + 0 + '-' + tan.get('key') + '.png)'
+			});
+
+			$tanShadow.addClass('tan tan-shadow');
+
+			drawNode.appendChild(tanShadow);
 			drawNode.appendChild(tanNode);
+
+			tan.setStyles();
+			tan.initPositionIn();
 
 		}
 
@@ -504,15 +526,20 @@ var Tan = Backbone.Model.extend({
 	reDraw: function () {
 
 		var tan = this,
-			tanNode = tan.get('node');
+			tanNode = tan.get('node'),
+			tanShadow = tan.get('tan-shadow'),
+            margin = Math.ceil(info.get('remSize', true) / 1.3);
+
+		tanShadow.style[tan.get('styleTransform')] = tan.getTransform({x: 0, y: margin}).style;
 
 		tanNode.style[tan.get('styleTransform')] = tan.getTransform().style;
 
 	},
 
-	getTransform: function () {
+	getTransform: function (deltaArg) {
 
-		var tan = this,
+		var delta = deltaArg || {x: 0, y: 0},
+			tan = this,
 			rotate = tan.get('rotate'),
 			dx = tan.get('dx'),
 			dy = tan.get('dy'),
@@ -520,9 +547,9 @@ var Tan = Backbone.Model.extend({
 			style;
 
 		if (isFlip) {
-			style = 'translate3d(' + dx + 'px,' + dy + 'px,0) rotate(' + (-rotate) + 'deg) scale(-1, 1)';
+			style = 'translate3d(' + (dx + delta.x) + 'px,' + (dy + delta.y) + 'px,0) rotate(' + (-rotate) + 'deg) scale(-1, 1)';
 		} else {
-			style = 'translate3d(' + dx + 'px,' + dy + 'px,0) rotate(' + rotate + 'deg)';
+			style = 'translate3d(' + (dx + delta.x) + 'px,' + (dy + delta.y) + 'px,0) rotate(' + rotate + 'deg)';
 		}
 
 		return {
@@ -591,11 +618,14 @@ var Tan = Backbone.Model.extend({
 	setStyles: function (isActive) {
 
 		var tan = this,
-			$node = $(tan.get('node'));
+			$node = $(tan.get('node')),
+			$tanShadow = $(tan.get('tan-shadow'));
 
 		if (isActive) {
+			$tanShadow.removeClass('hidden');
 			$node.addClass('tan_active');
 		} else {
+			$tanShadow.addClass('hidden');
 			$node.removeClass('tan_active');
 		}
 
@@ -893,12 +923,15 @@ var Tan = Backbone.Model.extend({
 
 		var tan = this,
 			node = tan.get('node'),
+            tanShadow = tan.get('tan-shadow'),
+            parent = node.parentNode,
 			attr = tan.toJSON();
 
 		tan.unsubscribe();
 		mediator.uninstallFrom(tan);
 
-		node.parentNode.removeChild(node);
+        parent.removeChild(node);
+        parent.removeChild(tanShadow);
 
 		_.each(attr, function (value, key) {
 			tan.set(key, null);
