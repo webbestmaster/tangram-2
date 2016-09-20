@@ -12,6 +12,7 @@ import tanCollection from './../tangram/models/tan-collection';
 import _ from './../../../lib/lodash';
 import $ from './../../../lib/jquery';
 import Queue from './../../../lib/queue';
+import util from './../../../services/util';
 
 var tanCollectionProto = tanCollection.prototype;
 
@@ -56,8 +57,12 @@ var SectionsView = BaseView.extend({
 			}));
 		}
 
-		view.render();
-		view.setVerticalSwiper();
+		util.loadImages(items.map(function (item) {
+			return 'i/item-preview/' + item.preview + '.png';
+		})).then(function () {
+			view.render();
+			view.setVerticalSwiper();
+		});
 
 		return BaseView.prototype.initialize.apply(view, arguments);
 
