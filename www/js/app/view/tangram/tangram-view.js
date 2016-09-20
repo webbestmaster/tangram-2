@@ -85,6 +85,11 @@ var TangramView = BaseView.extend({
 
 		tanCollection.setScale(scale);
 		tanCollection.initPattern(pattern);
+
+		timer = new Timer(view.$el.find('.js-timer'));
+		view.set('timer', timer);
+		tanCollection.setData('timer', timer);
+
 		tanCollection.drawPattern().then(function (canvas) {
 			view.$el.append(canvas);
 			tanCollection.drawTans();
@@ -95,9 +100,6 @@ var TangramView = BaseView.extend({
 			Array.prototype.unshift.call(tans, canvas);
 
 			(new TimelineMax({onComplete: function () {
-				var timer = new Timer(view.$el.find('.js-timer'));
-				view.set('timer', timer);
-				tanCollection.setData('timer', timer);
 				timer.start();
 			}})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
 

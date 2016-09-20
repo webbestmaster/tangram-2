@@ -35,6 +35,8 @@ var TangramSuccessfulView = BaseView.extend({
 
 		view.render();
 
+		(new TimelineMax()).staggerFromTo('.js-back, .one-more-tangram-check, .js-tangram-successful-view-star, .js-one-more-tangram', 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.2);
+
 		view.subscribe('route', view.hide);
 
 		return BaseView.prototype.initialize.apply(view, arguments);

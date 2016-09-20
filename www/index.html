@@ -165,17 +165,18 @@
 
 	<div class="screen-disable">
 
-		<div class="one-more-tangram-wrapper popup-show-in">
+		<div class="one-more-tangram-wrapper">
 			<div class="screen-back js-back">&#xf040;</div>
 
 			<div class="one-more-tangram-check">&#xf03a;</div>
 
 			<div class="tangram-successful-view-stars">
-				{{ var stars = it.stars; }}
-				{{? stars === 0}}&#xe900;&#xe900;&#xe900;{{?}}
-				{{? stars === 1}}&#xe901;&#xe900;&#xe900;{{?}}
-				{{? stars === 2}}&#xe901;&#xe901;&#xe900;{{?}}
-				{{? stars === 3}}&#xe901;&#xe901;&#xe901;{{?}}
+				{{ var stars = it.stars, list; }}
+				{{? stars === 0}} {{ list = ['&#xe900;','&#xe900;','&#xe900;']; }}{{?}}
+				{{? stars === 1}} {{ list = ['&#xe901;','&#xe900;','&#xe900;']; }}{{?}}
+				{{? stars === 2}} {{ list = ['&#xe901;','&#xe901;','&#xe900;']; }}{{?}}
+				{{? stars === 3}} {{ list = ['&#xe901;','&#xe901;','&#xe901;']; }}{{?}}
+				{{~ list :item }}<span class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
 			</div>
 
 			<div class="js-one-more-tangram one-more-tangram_left" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">&#xf040;</div>
