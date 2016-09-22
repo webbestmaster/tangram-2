@@ -90,21 +90,25 @@ var TangramView = BaseView.extend({
 		view.set('timer', timer);
 		tanCollection.setData('timer', timer);
 
-		tanCollection.drawPattern().then(function (canvas) {
-			view.$el.append(canvas);
-			tanCollection.drawTans();
-			var tans = view.$el.find('.js-tan').sort(function () {
-				return Math.random() - 0.5;
-			});
+		Promise.all([tanCollection.drawPattern(), util.preLoadTangramParts(info.get('tangramTexture'))])
+            .then(function (args) {
 
-			Array.prototype.unshift.call(tans, canvas);
+                var canvas = args[0];
 
-			(new TimelineMax({onComplete: function () {
-				timer.start();
-                $(tans).css('opacity', '');
-			}})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
+                view.$el.append(canvas);
+                tanCollection.drawTans();
+                var tans = view.$el.find('.js-tan').sort(function () {
+                    return Math.random() - 0.5;
+                });
 
-		});
+                Array.prototype.unshift.call(tans, canvas);
+
+                (new TimelineMax({onComplete: function () {
+                    timer.start();
+                    $(tans).css('opacity', '');
+                }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
+
+            });
 
 		tanCollection.createTans();
 		tanCollection.addDrawFieldTo(view.$el);
