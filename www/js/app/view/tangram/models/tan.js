@@ -124,6 +124,11 @@ var Tan = Backbone.Model.extend({
 			isActive: false
 		});
 
+		tan.set({
+			shadowCssMarginTop: Math.ceil(info.get('remSize', true) / 1.5),
+			shadowCssScale: 'scale(1.2, 1.2)'
+		});
+
 	},
 
 	bindEventListeners: function () {
@@ -354,7 +359,7 @@ var Tan = Backbone.Model.extend({
 			$tanShadow.css({
 				width: tan.get('sizeX') + 'px',
 				height: tan.get('sizeY') + 'px',
-				backgroundImage: 'url(i/tan-textures/texture-' + 0 + '-' + tan.get('key') + '.png)'
+				backgroundImage: 'url(i/tan-textures/texture-shadow-' + tan.get('key') + '.png)'
 			});
 
 			$tanShadow.addClass('tan tan-shadow');
@@ -528,9 +533,10 @@ var Tan = Backbone.Model.extend({
 		var tan = this,
 			tanNode = tan.get('node'),
 			tanShadow = tan.get('tan-shadow'),
-            margin = Math.ceil(info.get('remSize', true) / 1.3);
+			tanShadowMarginTop = tan.get('shadowCssMarginTop'),
+			tanShadowScale = tan.get('shadowCssScale');
 
-		tanShadow.style[tan.get('styleTransform')] = tan.getTransform({x: 0, y: margin}).style + ' scale(1.1, 1.1)';
+		tanShadow.style[tan.get('styleTransform')] = tan.getTransform({x: 0, y: tanShadowMarginTop}).style + ' ' + tanShadowScale;
 
 		tanNode.style[tan.get('styleTransform')] = tan.getTransform().style;
 

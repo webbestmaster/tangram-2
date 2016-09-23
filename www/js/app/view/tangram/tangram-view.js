@@ -90,7 +90,8 @@ var TangramView = BaseView.extend({
 		view.set('timer', timer);
 		tanCollection.setData('timer', timer);
 
-		Promise.all([tanCollection.drawPattern(), util.preLoadTangramParts(info.get('tangramTexture'))])
+
+		Promise.all([tanCollection.drawPattern(), util.preLoadTangramParts(info.get('tangramTexture')), util.preLoadTangramParts('shadow'), util.loadImage('i/flip.svg')])
             .then(function (args) {
 
                 var canvas = args[0];

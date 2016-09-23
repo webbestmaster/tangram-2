@@ -35,7 +35,7 @@ var HomeView = BaseView.extend({
 			device: device
 		}));
 
-		util.loadImages(['i/main-bg.jpg', 'font/origram.otf', 'i/no-ads.png'])
+		util.loadImages(['i/main-bg.jpg', 'font/origram.otf', 'font/icomoon.ttf', 'i/no-ads.png'])
 			.then(function () {
 				return view.render();
 			})
