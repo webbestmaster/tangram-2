@@ -29,6 +29,7 @@
 
 .tangram-texture-preview_active {
   opacity: 1;
+  @include prefix(transform, scale(1.08, 1.08));
 }
 
 .tangram-texture-preview-image {

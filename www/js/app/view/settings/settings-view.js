@@ -65,7 +65,7 @@ var SettingsView = BaseView.extend({
 
 		var view = this,
 			$node = $(e.currentTarget),
-			index = Number($node.attr('data-index')),
+			index = $node.attr('data-index'),
 			cssActiveClass = 'tangram-texture-preview_active';
 
 		view.$el.find('.' + cssActiveClass).removeClass(cssActiveClass);
