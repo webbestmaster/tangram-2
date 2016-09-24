@@ -308,18 +308,15 @@
 					{{var tangramTexture = it.info.get('tangramTexture'); }}
 
 					<div class="tangram-texture-preview-wrapper self-to-stream">
-					{{~ ['a', 'b', 'c', '0', '1', '2', '3', '4', '5', '6', '7', '8'] :number}}
-
-						{{? number === tangramTexture }}
-							<div data-index="{{= number }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active">
-								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
-								<!--<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>-->
+					{{~ it.list :item}}
+						{{? item === tangramTexture }}
+							<div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active">
+								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
 								<img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
 							</div>
 						{{??}}
-							<div data-index="{{= number }}" class="screen--button js-tangram-texture-preview tangram-texture-preview">
-								<!--<img class="tangram-texture-preview-image load-image js-load-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>-->
-								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= number }}.jpg" alt=""/>
+							<div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview">
+								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
 								<img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
 							</div>
 						{{?}}

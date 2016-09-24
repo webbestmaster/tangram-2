@@ -19,27 +19,23 @@ var SettingsView = BaseView.extend({
 
 		var view = this,
 			i,
-			images;
+            textureList = view.getTextureList();
 
 		view.set('tweens', []);
 
 		view.setElement(tm.get('settings')({
 			lang: lang,
-			info: info
-		}));
+			info: info,
+            list: textureList
+        }));
 
-		i = 9;
-		images = ['tangram-frame.svg'];
-		while ( i ) {
-			i -= 1;
-			images[images.length] = 'tangram-texture/' + i + '.jpg';
-		}
+        textureList = textureList.map(function (textureName) {
+            return 'i/tangram-texture/' + textureName + '.jpg';
+        });
 
-		images = images.map(function (path) {
-			return 'i/' + path;
-		});
+		textureList.push('i/tangram-frame.svg');
 
-		util.loadImages(images)
+		util.loadImages(textureList)
 			.then(function () {
 				return view.render();
 			})
@@ -60,6 +56,25 @@ var SettingsView = BaseView.extend({
 		return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
+
+    getTextureList: function () {
+
+        var list = [],
+            i;
+
+        list.push('zh-happiness', 'zh-life', 'zh-respect');
+
+        for (i = 0; i < 9; i+= 1) {
+            list.push(i);
+        }
+
+        for (i = 0; i < 17; i+= 1) {
+            list.push('solid-' + i);
+        }
+
+        return list;
+
+    },
 
 	setTangramTexture: function (e) {
 

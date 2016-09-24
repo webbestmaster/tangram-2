@@ -212,7 +212,7 @@
 
 	// tiny-png
 	gulp.task('tiny-png', function () {
-		gulp.src(['tinypng-501-1000/*.png'])
+		gulp.src(['www/i//tan-textures/*.png'])
 			.pipe(tinypng('f8ZqkiaR5hwI9QRdc8Dwropue4kENmRp')) // done 7 march
 			// h0DW7VyYVXnl3awj2o7v9wXR-EavOiB5 - kidmathgenius@gmail.com
 			// eSu5nMg0TSDairQWQC_Bx0h41PxKgKEp - mikhail.anisimau.play@gmail.com
