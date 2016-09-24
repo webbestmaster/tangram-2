@@ -74,7 +74,7 @@ var TanCollection = Backbone.Collection.extend({
 
 		collection.attr = {};
 
-		collection.bindEventListeners();
+		// collection.bindEventListeners();
 
 	},
 

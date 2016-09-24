@@ -107,6 +107,7 @@ var TangramView = BaseView.extend({
                 (new TimelineMax({onComplete: function () {
                     timer.start();
                     $(tans).css('opacity', '');
+					tanCollection.bindEventListeners();
                 }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
 
             });
