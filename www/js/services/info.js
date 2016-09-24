@@ -218,7 +218,7 @@ info = {
 				installTime: Date.now(),
 
 				// extra - tangram
-				tangramTexture: 0,
+				tangramTexture: 'solid-10',
 				gameDifficult: 'regular',
 				doneTangramsRegular: [],
 				doneTangramsMaster: []
