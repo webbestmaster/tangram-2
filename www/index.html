@@ -138,10 +138,10 @@
 							{{?}}
 							<div class="section-preview-star">
 								{{ var stars = item.stars; }}
-								{{? stars === 0}}&#xe900;&#xe900;&#xe900;{{?}}
-								{{? stars === 1}}&#xe901;&#xe900;&#xe900;{{?}}
-								{{? stars === 2}}&#xe901;&#xe901;&#xe900;{{?}}
-								{{? stars === 3}}&#xe901;&#xe901;&#xe901;{{?}}
+								{{? stars === 0}}&#xf006;&#xf006;&#xf006;{{?}}
+								{{? stars === 1}}&#xf005;&#xf006;&#xf006;{{?}}
+								{{? stars === 2}}&#xf005;&#xf005;&#xf006;{{?}}
+								{{? stars === 3}}&#xf005;&#xf005;&#xf005;{{?}}
 							</div>
 						</div>
 					{{?}}
@@ -169,10 +169,10 @@
 
 			<div class="tangram-successful-view-stars">
 				{{ var stars = it.stars, list; }}
-				{{? stars === 0}} {{ list = ['&#xe900;','&#xe900;','&#xe900;']; }}{{?}}
-				{{? stars === 1}} {{ list = ['&#xe901;','&#xe900;','&#xe900;']; }}{{?}}
-				{{? stars === 2}} {{ list = ['&#xe901;','&#xe901;','&#xe900;']; }}{{?}}
-				{{? stars === 3}} {{ list = ['&#xe901;','&#xe901;','&#xe901;']; }}{{?}}
+				{{? stars === 0}} {{ list = ['&#xf006;','&#xf006;','&#xf006;']; }}{{?}}
+				{{? stars === 1}} {{ list = ['&#xf005;','&#xf006;','&#xf006;']; }}{{?}}
+				{{? stars === 2}} {{ list = ['&#xf005;','&#xf005;','&#xf006;']; }}{{?}}
+				{{? stars === 3}} {{ list = ['&#xf005;','&#xf005;','&#xf005;']; }}{{?}}
 				{{~ list :item }}<span class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
 			</div>
 
