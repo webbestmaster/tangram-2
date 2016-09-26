@@ -28,6 +28,8 @@ var HomeView = BaseView.extend({
 
 		view.set('tweens', []);
 
+		view.setBackground(info.get('backgroundTexture'));
+
 		view.setElement(tm.get('home')({
 			lang: lang,
 			info: info,

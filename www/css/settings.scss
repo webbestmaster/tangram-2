@@ -19,7 +19,8 @@
   max-width: 22rem;
 }
 
-.tangram-texture-preview {
+.tangram-texture-preview,
+.background-texture-preview {
   width: 25%;
   float: left;
   margin: 2.6%;
@@ -27,7 +28,8 @@
   opacity: 0.5;
 }
 
-.tangram-texture-preview_active {
+.tangram-texture-preview_active,
+.background-texture-preview_active {
   opacity: 1;
   @include prefix(transform, scale(1.08, 1.08));
 }

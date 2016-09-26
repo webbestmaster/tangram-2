@@ -12,6 +12,7 @@ var SettingsView = BaseView.extend({
 
 	events: {
 		'click .js-tangram-texture-preview': 'setTangramTexture',
+		'click .js-background-texture-preview': 'setBackgroundTexture',
 		'click .js-set-lang': 'setLang'
 	},
 
@@ -19,14 +20,16 @@ var SettingsView = BaseView.extend({
 
 		var view = this,
 			i,
-            textureList = view.getTextureList();
+            textureList = view.getTextureList(),
+			backgroundList = view.getBackgroundList();
 
 		view.set('tweens', []);
 
 		view.setElement(tm.get('settings')({
 			lang: lang,
 			info: info,
-            list: textureList
+			textureList: textureList,
+			backgroundList: backgroundList
         }));
 
         textureList = textureList.map(function (textureName) {
@@ -76,6 +79,14 @@ var SettingsView = BaseView.extend({
 
     },
 
+	getBackgroundList: function () {
+
+    	var list = ['0', '1','2','3','4','5'];
+
+		return list;
+
+	},
+
 	setTangramTexture: function (e) {
 
 		var view = this,
@@ -87,6 +98,22 @@ var SettingsView = BaseView.extend({
 		$node.addClass(cssActiveClass);
 
 		info.set('tangramTexture', index);
+
+	},
+
+	setBackgroundTexture: function (e) {
+
+		var view = this,
+			$node = $(e.currentTarget),
+			index = $node.attr('data-index'),
+			cssActiveClass = 'background-texture-preview_active';
+
+		view.$el.find('.' + cssActiveClass).removeClass(cssActiveClass);
+		$node.addClass(cssActiveClass);
+
+		info.set('backgroundTexture', index);
+
+        view.setBackground(index);
 
 	},
 

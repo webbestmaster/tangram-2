@@ -805,6 +805,12 @@ var win = window,
 				isLoop: false
 			});
 
+		},
+
+		setBackground: function (index) {
+
+			doc.body.style.backgroundImage = 'url(i/background-texture/' + index + '.jpg)';
+
 		}
 
 	});

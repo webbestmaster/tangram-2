@@ -307,10 +307,9 @@
 				<div class="settings-section">
 					<div class="section-sub-header">{{= it.lang.get('tangram-textures') }}</div>
 
-					{{var tangramTexture = it.info.get('tangramTexture'); }}
-
 					<div class="tangram-texture-preview-wrapper self-to-stream">
-					{{~ it.list :item}}
+					{{var tangramTexture = it.info.get('tangramTexture'); }}
+					{{~ it.textureList :item}}
 						{{? item === tangramTexture }}
 							<div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active">
 								<img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
@@ -323,6 +322,25 @@
 							</div>
 						{{?}}
 					{{~}}
+					</div>
+				</div>
+
+
+				<div class="settings-section">
+					<div class="section-sub-header">[BACKGROUND]</div>
+					<div class="tangram-texture-preview-wrapper self-to-stream">
+						{{var backgroundTexture = it.info.get('backgroundTexture'); }}
+						{{~ it.backgroundList :item}}
+						{{? item === backgroundTexture }}
+						<div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview background-texture-preview_active">
+							<img class="tangram-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
+						</div>
+						{{??}}
+						<div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview">
+							<img class="tangram-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
+						</div>
+						{{?}}
+						{{~}}
 					</div>
 				</div>
 

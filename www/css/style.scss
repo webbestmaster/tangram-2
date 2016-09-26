@@ -14,9 +14,10 @@ html {
 
 body {
   background-image: url(../i/main-bg.jpg);
+  background-color: #000;
   background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+  @include prefix(background-size, cover);
+  @include prefix(transition, linear 0.3s background-image);
 }
 
 .wrapper {
