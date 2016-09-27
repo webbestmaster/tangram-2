@@ -255,9 +255,9 @@
     <div class="screen--button_popup js-set-game-difficult" data-difficult="{{= type }}" data-id="{{= it.id }}" data-index="{{= it.index }}">
 
         {{? type === difficult }}
-        <span class="screen--button--icon">&#xf03e;</span>
+        <span class="screen--button--icon">&#xea54;</span>
         {{??}}
-        <span class="screen--button--icon_inactive">&#xf03e;</span>
+        <span class="screen--button--icon">&#xea56;</span>
         {{?}}
 
         {{= it.lang.get('play-' + type) }}
@@ -305,9 +305,9 @@
 
                             <div class="screen--button js-set-lang" data-lang="{{= lang }}">
                                 {{? currentLanguage === lang }}
-                                <span class="screen--button--icon">&#xf03e;</span>
+                                <span class="screen--button--icon">&#xea54;</span>
                                 {{??}}
-                                <span class="screen--button--icon_inactive">&#xf03e;</span>
+                                <span class="screen--button--icon">&#xea56;</span>
                                 {{?}}
                                 {{= langSpelling }}
                             </div>
