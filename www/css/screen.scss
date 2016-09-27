@@ -82,7 +82,7 @@
 .scroll-area-container {
   @include prefix(overflow-scrolling, touch);
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 
