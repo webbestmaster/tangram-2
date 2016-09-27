@@ -44,6 +44,7 @@ var SettingsView = BaseView.extend({
 			})
 			.then(function () {
 				// view.animateUI();
+				view.setVerticalSwiper();
 
 				if (view.get('isHidden')) {
 					return;

@@ -2,7 +2,7 @@
 /*global window */
 
 var ru = {
-	language: 'Язык',
+	language: 'язык',
 	languageName: 'Русский',
 	shortLanguageName: 'Рус',
 	appName: 'Танграм-2',
@@ -68,6 +68,7 @@ var ru = {
 	// settings
 
 	settings: 'настройки',
+	wallpaper: 'обои',
 	//timer: 'timer',
 	//sound: 'sound',
 	'tangram-textures': 'текстуры танов'

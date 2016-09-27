@@ -2,7 +2,7 @@
 /*global window */
 
 var en = {
-	language: 'Language',
+	language: 'language',
 	languageName: 'English',
 	shortLanguageName: 'Eng',
 	appName: 'Tangram-2',
@@ -68,6 +68,7 @@ var en = {
 	// settings
 
 	settings: 'settings',
+	wallpaper: 'wallpaper',
 	//timer: 'timer',
 	//sound: 'sound',
 	'tangram-textures': 'tangram textures'
