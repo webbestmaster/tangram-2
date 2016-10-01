@@ -809,7 +809,10 @@ var win = window,
 
 		setBackground: function (index) {
 
-			doc.body.style.backgroundImage = 'url(i/background-texture/' + index + '.jpg)';
+			var imagePath = 'i/background-texture/' + index + '.jpg';
+			return util.loadImage(imagePath).then(function () {
+				doc.body.style.backgroundImage = 'url(' + imagePath + ')';
+			});
 
 		}
 

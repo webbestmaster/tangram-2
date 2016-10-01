@@ -112,7 +112,7 @@ var SettingsView = BaseView.extend({
 
 		info.set('backgroundTexture', index);
 
-        view.setBackground(index);
+        return view.setBackground(index);
 
 	},
 

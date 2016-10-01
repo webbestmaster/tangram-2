@@ -34,9 +34,13 @@
   @include prefix(transform, scale(1.08, 1.08));
 }
 
-.tangram-texture-preview-image {
+.background-texture-preview-image {
   display: block;
   width: 100%;
+}
+
+.tangram-texture-preview-image {
+  @extend .background-texture-preview-image;
   margin-bottom: -100%;
 }
 

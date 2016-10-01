@@ -29,8 +29,6 @@ var HomeView = BaseView.extend({
 
 		view.set('tweens', []);
 
-		view.setBackground(bgTextureId);
-
 		view.setElement(tm.get('home')({
 			lang: lang,
 			info: info,
@@ -41,10 +39,12 @@ var HomeView = BaseView.extend({
         util
             .loadImages([
 				'i/no-ads.png',
-                ('i/background-texture/' + bgTextureId + '.jpg'),
                 'font/origram.otf',
                 'font/icomoon.ttf'
             ])
+			.then(function () {
+				return view.setBackground(bgTextureId);
+			})
             .then(function () {
                 return view.render();
             })
