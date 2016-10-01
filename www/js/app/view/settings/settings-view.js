@@ -82,9 +82,7 @@ var SettingsView = BaseView.extend({
 
 	getBackgroundList: function () {
 
-    	var list = ['0', '1','2','3','4','5'];
-
-		return list;
+		return ['0', '1','2','3','4','5', '6', '7'];
 
 	},
 

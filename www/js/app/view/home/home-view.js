@@ -24,11 +24,12 @@ var HomeView = BaseView.extend({
 
 	initialize: function () {
 
-		var view = this;
+		var view = this,
+			bgTextureId = info.get('backgroundTexture');
 
 		view.set('tweens', []);
 
-		view.setBackground(info.get('backgroundTexture'));
+		view.setBackground(bgTextureId);
 
 		view.setElement(tm.get('home')({
 			lang: lang,
@@ -37,21 +38,27 @@ var HomeView = BaseView.extend({
 			device: device
 		}));
 
-		util.loadImages(['i/main-bg.jpg', 'font/origram.otf', 'font/icomoon.ttf', 'i/no-ads.png'])
-			.then(function () {
-				return view.render();
-			})
-			.then(function () {
-				view.animateUI();
+        util
+            .loadImages([
+				'i/no-ads.png',
+                ('i/background-texture/' + bgTextureId + '.jpg'),
+                'font/origram.otf',
+                'font/icomoon.ttf'
+            ])
+            .then(function () {
+                return view.render();
+            })
+            .then(function () {
+                view.animateUI();
 
-				if (view.get('isHidden')) {
-					return;
-				}
+                if (view.get('isHidden')) {
+                    return;
+                }
 
-				view.publish('previewSectionHelper:initialize');
-				view.rateUsPopup();
+                view.publish('previewSectionHelper:initialize');
+                view.rateUsPopup();
 
-			});
+            });
 
 		return BaseView.prototype.initialize.apply(view, arguments);
 

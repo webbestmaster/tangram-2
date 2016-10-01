@@ -219,7 +219,7 @@ info = {
 
 				// extra - tangram
 				tangramTexture: 'solid-10',
-				backgroundTexture: '1',
+				backgroundTexture: '0',
 				gameDifficult: 'regular',
 				doneTangramsRegular: [],
 				doneTangramsMaster: []
