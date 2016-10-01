@@ -137,7 +137,7 @@ var TanCollection = Backbone.Collection.extend({
 				if (hoveredTan) {
 					hoveredTan.set('isActive', true);
 					collection.setData('lastActiveTan', hoveredTan);
-					collection.publish('rotater:showMoverXY', hoveredTan.getCenterCoordinates());
+					// collection.publish('rotater:showMoverXY', hoveredTan.getCenterCoordinates());
 				} else {
 
 
@@ -405,7 +405,7 @@ var TanCollection = Backbone.Collection.extend({
 			dy: alignData.otherY - alignData.alignY
 		});
 
-		collection.publish('rotater:moveTo', tan.getCenterCoordinates());
+		// collection.publish('rotater:moveTo', tan.getCenterCoordinates());
 
 	},
 

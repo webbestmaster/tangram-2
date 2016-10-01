@@ -151,7 +151,7 @@ var Tan = Backbone.Model.extend({
 
 		tan.reDraw();
 
-		tan.publish('rotater:moveTo', tan.getCenterCoordinates());
+		// tan.publish('rotater:moveTo', tan.getCenterCoordinates());
 
 	},
 
@@ -170,7 +170,7 @@ var Tan = Backbone.Model.extend({
 		tan.setBy('dx', data.dx);
 		tan.setBy('dy', data.dy);
 
-		tan.publish('rotater:moveTo', tan.getCenterCoordinates());
+		// tan.publish('rotater:moveTo', tan.getCenterCoordinates());
 
 		tan.reDraw();
 
