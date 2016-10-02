@@ -809,9 +809,11 @@ var win = window,
 
 		setBackground: function (index) {
 
-			var imagePath = 'i/background-texture/' + index + '.jpg';
+			var $wrapper = this.$wrapper,
+				imagePath = 'i/background-texture/' + index + '.jpg';
+
 			return util.loadImage(imagePath).then(function () {
-				doc.body.style.backgroundImage = 'url(' + imagePath + ')';
+				$wrapper.css('backgroundImage', 'url(' + imagePath + ')');
 			});
 
 		}

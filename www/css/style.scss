@@ -12,17 +12,13 @@ html {
   min-height: 100%;
 }
 
-body {
-  background-color: #000;
-  background-repeat: no-repeat;
-  @include prefix(background-size, cover);
-  @include prefix(transition, linear 0.3s background-image);
-}
-
 .wrapper {
   color: $textColor;
   font-family: HelveticaNeueCyr, "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   line-height: 125%;
+  background-repeat: no-repeat;
+  @include prefix(background-size, cover);
+  @include prefix(transition, linear 0.3s background-image);
 }
 
 .save-atoms {
