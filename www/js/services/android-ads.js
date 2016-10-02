@@ -20,6 +20,10 @@ var win = window,
 				now,
 				lastShow;
 
+			// FIXME: try to resolve some problems with admob
+
+			return;
+
 			if ( !ad.get('adsIsAvailable') ) {
 				return;
 			}
