@@ -99,7 +99,7 @@
 
                 {{? it.info.isNormal }}
                 <div class="anim-from-right js-anim-from-right">
-                    <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link js-external-link">&nbsp;</div>
+                    <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link js-external-link">&#xe900;</div>
                 </div>
                 {{?}}
 
@@ -195,6 +195,10 @@
 <script class="js-template" type="text/x-template" data-name="tangram">
 
     <section class="screen">
+
+        {{? it.info.isNormal && it.info.get('gameDifficult') === 'regular'}}
+        <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link_left js-external-link">&#xe900;</div>
+        {{?}}
 
         <div class="tangram-menu-button js-tangram-menu-button">
             <div class="tangram-menu-button-line_0">&nbsp;</div>

@@ -270,7 +270,7 @@ var TangramView = BaseView.extend({
 	hideButtons: function () {
 		this.$el.find('.js-tangram-menu-button').addClass('tangram-menu-button_hidden');
 		this.$el.find('.js-flip-tan').addClass('flip-tan_hidden');
-
+		this.$el.find('.market-link_left.js-external-link').addClass('flip-tan_hidden');
 	},
 
 	menu: function () {

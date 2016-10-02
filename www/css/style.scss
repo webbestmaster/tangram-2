@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'origram';
+  font-family: origram;
   src: url('../font/origram.otf');
 }
 
 @font-face {
-  font-family: 'icons';
+  font-family: icons;
   src: url('../font/icomoon.ttf');
 }
 
@@ -190,12 +190,11 @@ html {
 // menu button
 .tangram-menu-button {
   position: absolute;
-  width: 3rem;
+  width: 2.3rem;
   height: 2.2rem;
   top: 0.6rem;
   right: 0.6rem;
   z-index: 1;
-  opacity: 0.75;
   @extend .luxury-3d-button;
   @include prefix(transition, opacity ease-out 0.3s);
 }
@@ -208,14 +207,14 @@ html {
   position: absolute;
   width: 70%;
   left: 15%;
-  height: 10%;
+  height: 8%;
   background-color: $textColor;
   border-radius: 1rem;
   @include prefix(transition, all ease-out 0.2s);
 }
 
 .tangram-menu-button-line_0 {
-  top: 20%;
+  top: 25%;
   @extend .tangram-menu-button-line;
 }
 
@@ -225,7 +224,7 @@ html {
 }
 
 .tangram-menu-button-line_2 {
-  top: 70%;
+  top: 65%;
   @extend .tangram-menu-button-line;
 }
 
@@ -297,12 +296,30 @@ html {
 .market-link {
   position: absolute;
   top: 0.7rem;
-  right: 0.7rem;
+  right: 0.6rem;
   width: 2.3rem;
-  height: 2.3rem;
+  height: 2.2rem;
   z-index: 1;
-  background-image: url(../i/no-ads.png);
-  @include prefix(background-size, 100% 100%);
+  font-family: icons;
+  text-indent: 0.55rem;
+  line-height: 2.2rem;
+  font-size: 1.05rem;
+  @include prefix(transition, opacity ease-out 0.1s);
+  @extend .luxury-3d-button;
+}
+
+.market-link_left  {
+  left: 0.6rem;
+  right: auto;
+  @extend .market-link;
+}
+
+.market-link_hidden {
+  opacity: 0;
+}
+
+.market-link_left:active {
+  @extend .luxury-3d-button_active;
 }
 
 .flip-tan {
