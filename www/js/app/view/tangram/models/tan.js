@@ -537,8 +537,10 @@ var Tan = Backbone.Model.extend({
 			tanShadowMarginTop = tan.get('shadowCssMarginTop'),
 			tanShadowScale = tan.get('shadowCssScale');
 
+		tanShadow.style.transform = tan.getTransform({x: 0, y: tanShadowMarginTop}).style + ' ' + tanShadowScale;
 		tanShadow.style[styleTransform] = tan.getTransform({x: 0, y: tanShadowMarginTop}).style + ' ' + tanShadowScale;
 
+		tanNode.style.transform = tan.getTransform().style;
 		tanNode.style[styleTransform] = tan.getTransform().style;
 
 	},
