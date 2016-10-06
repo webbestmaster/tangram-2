@@ -38,6 +38,7 @@ var HomeView = BaseView.extend({
 
         util
             .loadImages([
+            	'i/popup-close-icon.svg',
                 'font/origram.otf',
                 'font/icomoon.ttf'
             ])
