@@ -38,7 +38,6 @@ var HomeView = BaseView.extend({
 
         util
             .loadImages([
-				'i/no-ads.png',
                 'font/origram.otf',
                 'font/icomoon.ttf'
             ])
