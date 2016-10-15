@@ -24,8 +24,8 @@ var TangramView = BaseView.extend({
 		scroll: 'stopEvent',
 		//'click .js-save-atoms': 'saveAtoms',
 		'click .js-tangram-menu-button': 'menu',
-		'click .js-flip-tan': 'flipTan',
-		'down .js-flip-tan': 'stopEvent'
+		'click .js-flip-tan': 'flipTan'
+		// 'down .js-flip-tan': 'stopEvent'
 		//'click .js-back-to-section': 'backToSection'
 	},
 
@@ -87,7 +87,7 @@ var TangramView = BaseView.extend({
 			width: flipTanSize + 'px',
 			height: flipTanSize + 'px',
 			marginTop: -flipTanSize / 2 + 'px',
-			marginLeft: -flipTanSize / 2 + 'px',
+			// marginLeft: -flipTanSize / 2 + 'px',
 			opacity: 0
 		});
 
