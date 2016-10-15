@@ -206,7 +206,7 @@ var TangramView = BaseView.extend({
 			newShowingTween = new TimelineMax();
 
 			newShowingTween
-				.set($btn, {x: x, y: y, rotationY: -180, alpha: 0, force3D: true})
+				.set($btn, {x: x, y: y, rotationY: -270, alpha: 0, force3D: true})
 				.to($btn, 0.3, {rotationY: 0, alpha: 0.6, force3D: true});
 
 			view.set('showing-flip-btn-tween', newShowingTween);
@@ -214,7 +214,7 @@ var TangramView = BaseView.extend({
 		} else {
 
 			newHidingTween = new TimelineMax();
-			newHidingTween.to($btn, 0.15, {rotationY: -180, alpha: 0, force3D: true});
+			newHidingTween.to($btn, 0.15, {rotationY: -270, alpha: 0, force3D: true});
 			view.set('hiding-flip-btn-tween', newHidingTween);
 		}
 
