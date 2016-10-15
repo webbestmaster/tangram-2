@@ -1,19 +1,9 @@
 .rotater {
   position: absolute;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  -webkit-background-size: 90% 90%;
+  background-size: 90% 90%;
   background-position: center center;
-  width: 100px;
-  height: 100px;
-  opacity: 0.5;
-  transition: opacity 0.1s ease-out;
-}
-
-.rotater__hidden {
-  display: none;
-}
-
-.state-rotater {
   background-image: url(../i/rotate-bg.svg);
 }
 

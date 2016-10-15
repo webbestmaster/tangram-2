@@ -125,7 +125,7 @@ var Tan = Backbone.Model.extend({
 		});
 
 		tan.set({
-			shadowCssMarginTop: Math.ceil(info.get('remSize', true) / 1.5),
+			shadowCssMarginTop: Math.ceil(scale / 35),
 			shadowCssScale: 'scale(1.2, 1.2)'
 		});
 

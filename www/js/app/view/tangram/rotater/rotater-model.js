@@ -33,6 +33,12 @@ var RotaterModel = Backbone.Model.extend({
 		rotater.initNode();
 		rotater.bindEventListeners();
 
+		rotater.set('showing-tween', new TimelineMax());
+		rotater.set('hiding-tween', new TimelineMax());
+		rotater.set('show-ease', Back.easeOut.config(1.4));
+		rotater.set('hide-ease', Back.easeIn.config(1.4));
+		rotater.set('active-alpha', 0.4);
+
 	},
 
 	initNode: function () {
@@ -42,13 +48,14 @@ var RotaterModel = Backbone.Model.extend({
 			parent$el = parentView.$el,
 			size = rotater.get('size'),
 			size050 = rotater.get('size050'),
-			$rotater = $('<div class="rotater rotater__hidden">&nbsp;</div>');
+			$rotater = $('<div class="rotater">&nbsp;</div>');
 
 		$rotater.css({
 			width: size + 'px',
 			height: size + 'px',
 			top: -size050 + 'px',
-			left: -size050 + 'px'
+			left: -size050 + 'px',
+			opacity: 0
 		});
 
 		rotater.set('$rotater', $rotater);
@@ -172,25 +179,66 @@ var RotaterModel = Backbone.Model.extend({
 
 		var rotater = this,
 			tan = rotater.get('tan'),
-			$rotater = rotater.get('$rotater');
+			$rotater = rotater.get('$rotater'),
+			oldShowingTween = rotater.get('showing-tween'),
+			oldHidingTween = rotater.get('hiding-tween'),
+			newShowingTween,
+            newCoordinates = tan.getCenterCoordinates(),
+            x = newCoordinates.x,
+            y = newCoordinates.y,
+            rotate = newCoordinates.rotate,
+			ease = rotater.get('show-ease'),
+			alpha = rotater.get('active-alpha');
 
-		rotater.moveTo(tan.getCenterCoordinates());
+        oldHidingTween.kill();
+        oldShowingTween.kill();
 
-		// $rotater.removeClass('rotater__hidden').addClass('state-rotater').removeClass('state-mover');
-		$rotater.removeClass('rotater__hidden').addClass('state-rotater');
+		rotater.moveTo(newCoordinates);
+
+		newShowingTween = new TimelineMax();
+
+        newShowingTween
+            .set($rotater, {x: x, y: y, alpha: 0, scale: 0, rotation: rotate - 90})
+            .to($rotater, 0.3, {alpha: alpha, scale: 1, rotation: rotate, ease: ease, force3D: true});
+
+        rotater.set('showing-tween', newShowingTween);
 
 	},
 
-/*
-	showMoverNode: function () {
+    hideNode: function () {
 
 		var rotater = this,
-			$rotater = rotater.get('$rotater');
+			$rotater = rotater.get('$rotater'),
+			oldShowingTween = rotater.get('showing-tween'),
+			oldHidingTween = rotater.get('hiding-tween'),
+			newHidingTween,
+			tan = rotater.get('tan'),
+			rotate = tan ? tan.get('rotate') : 0,
+			ease = rotater.get('hide-ease');
 
-		$rotater.removeClass('rotater__hidden').addClass('state-mover').removeClass('state-rotater');
+		oldHidingTween.kill();
+		oldShowingTween.kill();
 
-	},
-*/
+		newHidingTween = new TimelineMax();
+
+		newHidingTween
+			.set($rotater, {rotation: rotate})
+			.to($rotater, 0.15, {alpha: 0, scale: 0, rotation: rotate - 90, ease: ease, force3D: true});
+
+		rotater.set('hiding-tween', newHidingTween);
+
+    },
+
+    /*
+        showMoverNode: function () {
+
+            var rotater = this,
+                $rotater = rotater.get('$rotater');
+
+            $rotater.removeClass('rotater__hidden').addClass('state-mover').removeClass('state-rotater');
+
+        },
+    */
 
 	moveTo: function (data) {
 
@@ -214,16 +262,6 @@ var RotaterModel = Backbone.Model.extend({
 		rotater.set('isActive', false);
 
 		rotater.publish('flip-btn', false);
-
-	},
-
-	hideNode: function () {
-
-		var rotater = this,
-			$rotater = rotater.get('$rotater');
-
-		// $rotater.removeClass('state-rotater').removeClass('state-mover').addClass('rotater__hidden');
-		$rotater.removeClass('state-rotater').addClass('rotater__hidden');
 
 	},
 
@@ -276,7 +314,12 @@ var RotaterModel = Backbone.Model.extend({
 	destroy: function () {
 
 		var rotater = this,
-			attr = rotater.toJSON();
+			attr = rotater.toJSON(),
+			showingTween = rotater.get('showing-tween'),
+			hidingTween = rotater.get('hiding-tween');
+
+		showingTween.kill();
+		hidingTween.kill();
 
 		rotater.unsubscribe();
 		mediator.uninstallFrom(rotater);
