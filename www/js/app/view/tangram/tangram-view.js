@@ -60,7 +60,9 @@ var TangramView = BaseView.extend({
 				id: sectionId,
 				index: Number(index)
 			},
-			timer;
+			timer,
+			$flipButton,
+			flipTanSize;
 
 		view.set('tan-collection', tanCollection);
 
@@ -74,9 +76,19 @@ var TangramView = BaseView.extend({
 		scale = view.detectScale(pattern);
 
 		view.setElement(tm.get('tangram')({
-			info: info,
-			size: scale
+			info: info
+			// scale: scale
 		}));
+
+		flipTanSize = Math.round(scale / 3.8);
+		$flipButton = view.$el.find('.js-flip-tan');
+		$flipButton.css({
+			width: flipTanSize + 'px',
+			height: flipTanSize + 'px',
+			marginTop: -flipTanSize / 2 + 'px',
+			marginLeft: -flipTanSize / 2 + 'px',
+			opacity: 0
+		});
 
 		view.bindEventListeners();
 
@@ -117,7 +129,10 @@ var TangramView = BaseView.extend({
 		tanCollection.setData('rotater', rotater);
 
 		view.set('$menuButton', view.$el.find('.js-tangram-menu-button'));
-		view.set('$flipButton', view.$el.find('.js-flip-tan'));
+		view.set('$flipButton', $flipButton);
+
+		view.set('showing-flip-btn-tween', new TimelineMax());
+		view.set('hiding-flip-btn-tween', new TimelineMax());
 
 		rotater.initialize({
 			parentView: view,
@@ -138,7 +153,12 @@ var TangramView = BaseView.extend({
 		var view = this,
 			tanCollection = view.get('tan-collection'),
 			$svg = view.$el.find('svg'),
-			removedItems = ['image', 'pattern', 'defs', 'polygon'];
+			removedItems = ['image', 'pattern', 'defs', 'polygon'],
+			oldShowingTween = view.get('showing-flip-btn-tween'),
+			oldHidingTween = view.get('hiding-flip-btn-tween');
+
+		oldShowingTween.kill();
+		oldHidingTween.kill();
 
 		tanCollection.destroy();
 
@@ -159,14 +179,43 @@ var TangramView = BaseView.extend({
 
 	},
 
-	setFlipBtnState: function (state) {
+	setFlipBtnState: function (data) {
 
-		var $btn = this.get('$flipButton');
+		var view = this,
+			$btn = view.get('$flipButton'),
+			rotater = data && data.rotater,
+			rotater050Size,
+			x,
+			y,
+			newShowingTween,
+			newHidingTween,
+			// scale = view.get('scale'),
+			oldShowingTween = view.get('showing-flip-btn-tween'),
+			oldHidingTween = view.get('hiding-flip-btn-tween');
 
-		if (state) {
-			$btn.addClass('flip-btn_active');
+		oldShowingTween.kill();
+		oldHidingTween.kill();
+
+		if (rotater) {
+
+			// show
+			rotater050Size = rotater.get('size050');
+			x = data.x - rotater050Size;
+			y = data.y;
+
+			newShowingTween = new TimelineMax();
+
+			newShowingTween
+				.set($btn, {x: x, y: y, rotationY: -180, alpha: 0, force3D: true})
+				.to($btn, 0.3, {rotationY: 0, alpha: 0.6, force3D: true});
+
+			view.set('showing-flip-btn-tween', newShowingTween);
+
 		} else {
-			$btn.removeClass('flip-btn_active');
+
+			newHidingTween = new TimelineMax();
+			newHidingTween.to($btn, 0.15, {rotationY: -180, alpha: 0, force3D: true});
+			view.set('hiding-flip-btn-tween', newHidingTween);
 		}
 
 	},
@@ -268,9 +317,9 @@ var TangramView = BaseView.extend({
 	},
 
 	hideButtons: function () {
-		this.$el.find('.js-tangram-menu-button').addClass('tangram-menu-button_hidden');
-		this.$el.find('.js-flip-tan').addClass('flip-tan_hidden');
-		this.$el.find('.market-link_left.js-external-link').addClass('flip-tan_hidden');
+		this.$el.find('.js-tangram-menu-button, .market-link_left.js-external-link').css('opacity', 0);
+		// this.$el.find('.js-flip-tan').addClass('flip-tan_hidden');
+		// this.$el.find('').addClass('hidden');
 	},
 
 	menu: function () {

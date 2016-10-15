@@ -16,7 +16,7 @@ var RotaterModel = Backbone.Model.extend({
 		}
 
 		var rotater = this,
-			size = data.size * 1.2,
+			size = data.size * 1.1,
 			size050 = size / 2,
 			size025 = size / 4;
 
@@ -144,8 +144,6 @@ var RotaterModel = Backbone.Model.extend({
 
 		rotater.showNode();
 
-		rotater.publish('flip-btn', true);
-
 	},
 
 	setStartData: function (data) {
@@ -202,6 +200,12 @@ var RotaterModel = Backbone.Model.extend({
             .to($rotater, 0.3, {alpha: alpha, scale: 1, rotation: rotate, ease: ease, force3D: true});
 
         rotater.set('showing-tween', newShowingTween);
+
+		rotater.publish('flip-btn', {
+			rotater: rotater,
+			x: x,
+			y: y
+		});
 
 	},
 

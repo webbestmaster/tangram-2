@@ -1,8 +1,7 @@
 .rotater {
   position: absolute;
   background-repeat: no-repeat;
-  -webkit-background-size: 90% 90%;
-  background-size: 90% 90%;
+  @include prefix(background-size, 90% 90%);
   background-position: center center;
   background-image: url(../i/rotate-bg.svg);
 }
