@@ -24,7 +24,8 @@ var TangramView = BaseView.extend({
 		scroll: 'stopEvent',
 		//'click .js-save-atoms': 'saveAtoms',
 		'click .js-tangram-menu-button': 'menu',
-		'click .js-flip-tan': 'flipTan'
+		'click .js-flip-tan': 'flipTan',
+		'down .js-flip-tan': 'stopEvent'
 		//'click .js-back-to-section': 'backToSection'
 	},
 
