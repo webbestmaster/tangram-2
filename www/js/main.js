@@ -67,7 +67,7 @@ window.addEventListener('load', function () {
         BaseView.prototype.initStatic();
 
         Backbone.history.start();
-        win.setTimeout(androidAds.showAd, 3e3);
+        // win.setTimeout(androidAds.showAd, 3e3);
 
     }());
 

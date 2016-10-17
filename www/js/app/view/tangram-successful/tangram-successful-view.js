@@ -49,6 +49,10 @@ var TangramSuccessfulView = BaseView.extend({
 
 		this.$wrapper.append(view.$el);
 
+		window.setTimeout(function () {
+			androidAds.showAd();
+		}, 1200);
+
 	},
 
 	oneMoreTangram: function (e) {
@@ -66,8 +70,6 @@ var TangramSuccessfulView = BaseView.extend({
 			id: id,
 			index: index
 		});
-
-		androidAds.showAd();
 
 	}
 

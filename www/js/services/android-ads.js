@@ -20,20 +20,23 @@ var win = window,
 				now,
 				lastShow;
 
-			// FIXME: try to resolve some problems with admob
-
-			return;
+			// console.log(ad.get('adsIsAvailable'));
 
 			if ( !ad.get('adsIsAvailable') ) {
 				return;
 			}
 
+			// console.log('try to show');
+
 			now = Date.now();
 			lastShow = ad.get('lastShow');
 
 			if ( now - lastShow >= ad.minShowPeriod ) {
+				// console.log('ads');
 				ad.set('lastShow', now);
 				Android.displayInterstitial();
+			} else {
+				// console.log('too early to show');
 			}
 
 		},
@@ -43,7 +46,7 @@ var win = window,
 
 			ad.showAd = ad.showAd.bind(ad);
 
-			ad.set('lastShow', Date.now());
+			ad.set('lastShow', 0);
 
 			ad.set('adsIsAvailable', (typeof Android !== 'undefined') && info.isNormal );
 
