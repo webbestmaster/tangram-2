@@ -53,7 +53,8 @@ var SectionsView = BaseView.extend({
 				id: sectionId,
 				lang: lang,
 				items: items,
-				doneTangrams: info.getDoneTangrams()
+				doneTangrams: info.getDoneTangrams(),
+				info: info
 			}));
 		}
 

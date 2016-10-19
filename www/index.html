@@ -10,16 +10,6 @@
     <!-- do not call phone -->
     <meta name="format-detection" content="telephone=no">
 
-    <!-- add site icon -->
-    <!--<link rel="icon" href="i/favicon.ico" type="image/x-icon">-->
-
-    <!-- iPhone icon -->
-    <!--<link rel="apple-touch-icon" href="i/iphone.jpg"/>-->
-
-    <!-- keywords and description -->
-    <!--<meta name="keywords" content="">-->
-    <!--<meta name="description" content="">-->
-
     <link rel="stylesheet" href="css/main.css"/>
 
     <script src="js/main.js" class="js-main-js" type="text/javascript"></script>
@@ -28,23 +18,6 @@
 <body>
 
 <div class="js-wrapper wrapper"></div>
-
-<!--
-<script class="js-template" type="text/x-template" data-name="header">
-
-	<div class="header">
-
-		{{? it.isBack }}
-		<div class="header&#45;&#45;back">&nbsp;</div>
-		{{?}}
-
-		<div class="header&#45;&#45;setting">&nbsp;</div>
-
-		<div class="header&#45;&#45;title">{{= it.lang.get(it.title) }}</div>
-
-	</div>
-</script>
--->
 
 <script class="js-template" type="text/x-template" data-name="home">
 
@@ -55,8 +28,6 @@
                         <div class="anim-from-right js-anim-from-right">1001</div>
                         <div class="anim-from-right js-anim-from-right">tangram</div>
                     </div>
-                    <!--<div class="title-game-name">tangram</div>-->
-                    <!-- 七 巧 板 -->
                 </div>
 
                 <div class="screen--button-wrapper_split_second">
@@ -70,11 +41,9 @@
                     <div class="anim-from-right js-anim-from-right">
                         <div class="screen--button" data-route="settings">{{= it.lang.get('settings') }}</div>
                     </div>
-                    <!--<div class="screen&#45;&#45;button">{{= it.lang.get('share') }}</div>-->
 
                     {{? it.info.get('dev-mode') }}
                     <div class="screen--button" data-route="tangram-constructor">constructor</div>
-                    <!--<div class="screen&#45;&#45;button js-save-textures">save textures</div>-->
 
                     {{ var size = it.textureInfo.size; }}
 
@@ -129,8 +98,6 @@
                     <div class="section-preview" data-route="sections/{{= item.id }}">
                         <div class="section-preview-done-info">{{= item.doneTangramsHashs.length }} / {{= item.length }}</div>
                         <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
-                        <!--<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">-->
-                        <!--<div class="section-preview-image" style="background-image: url(i/item-preview/{{= item.preview }}.png);">&nbsp;</div>-->
                         <p class="section-preview-name ellipsis">{{= it.lang.getPartial(item.name) }}</p>
                     </div>
                     {{??}}
@@ -139,14 +106,20 @@
                         {{= item.preview.svgText }}
                         {{??}}
                         <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
-                        <!--<img class="section-preview-image load-image js-load-image" src="i/item-preview/{{= item.preview }}.png" alt="">-->
                         {{?}}
                         <div class="section-preview-star">
+
                             {{ var stars = item.stars; }}
-                            {{? stars === 0}}&#xf006;&#xf006;&#xf006;{{?}}
-                            {{? stars === 1}}&#xf005;&#xf006;&#xf006;{{?}}
-                            {{? stars === 2}}&#xf005;&#xf005;&#xf006;{{?}}
-                            {{? stars === 3}}&#xf005;&#xf005;&#xf005;{{?}}
+
+                            {{? it.info.get('timer') === 'on' }}
+                                {{? stars === 0}}&#xf006;&#xf006;&#xf006;{{?}}
+                                {{? stars === 1}}&#xf005;&#xf006;&#xf006;{{?}}
+                                {{? stars === 2}}&#xf005;&#xf005;&#xf006;{{?}}
+                                {{? stars === 3}}&#xf005;&#xf005;&#xf005;{{?}}
+                            {{??}}
+                                {{= stars ? '&#xf005;' : '&#xf006;' }}
+                            {{?}}
+
                         </div>
                     </div>
                     {{?}}
@@ -155,7 +128,6 @@
 
                 </div>
             </div>
-            <!-- Add Scroll Bar -->
             <div class="swiper-scrollbar"></div>
         </div>
 
@@ -178,11 +150,13 @@
                 {{? stars === 1}} {{ list = ['&#xf005;','&#xf006;','&#xf006;']; }}{{?}}
                 {{? stars === 2}} {{ list = ['&#xf005;','&#xf005;','&#xf006;']; }}{{?}}
                 {{? stars === 3}} {{ list = ['&#xf005;','&#xf005;','&#xf005;']; }}{{?}}
-                {{~ list :item }}<span class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
+
+                {{? it.info.get('timer') === 'on' }}
+                    {{~ list :item }}<span class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
+                {{?}}
             </div>
 
             <div class="js-one-more-tangram one-more-tangram_left" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">&#xf040;</div>
-            <!--<button class="js-restart-tangram" data-name="{{= it.name }}" data-index="{{= it.index }}" >restart tangram</button>-->
             <div class="js-one-more-tangram one-more-tangram_center" data-id="{{= it.id }}" data-index="{{= it.index }}">&#xf087;</div>
             <div class="js-one-more-tangram one-more-tangram_right" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">&#xf03e;</div>
 
@@ -218,21 +192,6 @@
             <div class="flip-tan-image">&nbsp;</div>
         </div>
 
-        <!-- svg-version
-                <svg xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        {{ var size = it.size, textureName = it.info.get('tangramTexture'), texturePath = 'i/tangram-texture/' + textureName + '.jpg'; }}
-                        <pattern id="default" width="{{= size }}px" height="{{= size }}px" patternUnits="userSpaceOnUse">
-                            <image x="0" y="0" width="{{= size }}px" height="{{= size }}px" xlink:href="{{= texturePath }}"></image>
-                        </pattern>
-                        <pattern id="triangle-medium-pattern" width="{{= size }}px" height="{{= size }}px"
-                                 patternUnits="userSpaceOnUse" patternTransform="translate({{= size / 2 }}, 0) rotate(135)">
-                            <image x="0" y="0" width="{{= size }}px" height="{{= size }}px" xlink:href="{{= texturePath }}"></image>
-                        </pattern>
-                    </defs>
-                </svg>
-        -->
-
     </section>
 
 </script>
@@ -246,7 +205,7 @@
     <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}</div>
     <br />
     {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-    <div class="screen--checkbox{{= className }}js-setting-checkbox" data-setting="timer">
+    <div class="screen--checkbox{{= className }} js-menu-setting-checkbox screen--button_popup" data-id="{{= it.id }}" data-index="{{= it.index }}" data-setting="timer">
         <span class="screen--checkbox--icon__checked">&#xea54;</span>
         <span class="screen--checkbox--icon">&#xea56;</span>
         {{= it.lang.get('timer') }}
@@ -287,13 +246,6 @@
                         <p class="section-header">{{= it.lang.get('settings') }}</p>
                     </div>
 
-                    <!--
-                                    <div class="settings-section">
-                                        <div class="screen&#45;&#45;button">{{= it.lang.get('timer') }}</div>
-                                        <div class="screen&#45;&#45;button">{{= it.lang.get('sound') }}</div>
-                                    </div>
-                    -->
-
                     <div class="settings-section">
 
                         <div class="section-sub-header">&nbsp;</div>
@@ -320,7 +272,6 @@
 
                     </div>
 
-
                     <div class="settings-section">
                         {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
                         <div class="screen--checkbox{{= className }}js-setting-checkbox" data-setting="timer">
@@ -329,7 +280,6 @@
                             {{= it.lang.get('timer') }}
                         </div>
                     </div>
-
 
                     <div class="settings-section">
                         <div class="section-sub-header">{{= it.lang.get('tangram-textures') }}</div>
@@ -370,22 +320,9 @@
                         </div>
                     </div>
 
-                    <!--<div class="settings-section">-->
-                    <!--<div class="screen&#45;&#45;button">{{= it.lang.get('other-apps') }}</div>-->
-                    <!--<div class="screen&#45;&#45;button">{{= it.lang.get('about') }}</div>-->
-                    <!--<div class="screen&#45;&#45;button">{{= it.lang.get('e-mail') }}</div>-->
-                    <!--</div>-->
-
-                    <!--
-                                    <div class="settings-section">
-                                        <div class="screen&#45;&#45;button">{{= it.lang.get('reset') }}</div>
-                                    </div>
-                    -->
-
                 </div>
             </div>
 
-            <!-- Add Scroll Bar -->
             <div class="swiper-scrollbar"></div>
 
         </div>
@@ -393,8 +330,6 @@
     </section>
 
 </script>
-
-<!-- FW -->
 
 <script class="js-template" type="text/x-template" data-name="popup-wrapper">
 

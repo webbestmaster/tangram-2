@@ -30,6 +30,7 @@ var TangramSuccessfulView = BaseView.extend({
 		sectionInfo = util.getSectionInfo(tangramInfo);
 
 		sectionInfo.stars = data.stars;
+		sectionInfo.info = info;
 
 		view.setElement(tm.get('tangram-successful')(sectionInfo));
 

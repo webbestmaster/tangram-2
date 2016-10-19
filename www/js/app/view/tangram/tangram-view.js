@@ -393,6 +393,26 @@ var TangramView = BaseView.extend({
 					}
 				},
 				{
+					selector: '.js-menu-setting-checkbox',
+					event: 'click',
+					fn: function (e) {
+
+						var $node = $(e.currentTarget),
+							index = $node.attr('data-index'),
+							id = $node.attr('data-id');
+
+						view.changeCheckboxSetting(e);
+
+						mediator.publish('hide-main-view');
+
+						mediator.publish('tangram-view', {
+							id: id,
+							index: index
+						});
+
+					}
+				},
+				{
 					selector: '.js-back-to-section',
 					event: 'click',
 					fn: function () {
