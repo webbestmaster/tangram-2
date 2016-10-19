@@ -40,7 +40,10 @@ var win = window,
 
 			// tabs
 			'click .js-tab-button': 'tabAction',
-			'click .js-tab-close': 'tabClose'
+			'click .js-tab-close': 'tabClose',
+
+			// settings
+			'click .js-setting-checkbox': 'changeCheckboxSetting'
 
 		},
 
@@ -231,6 +234,24 @@ var win = window,
 			$container.html(followData.value);
 
 			$container.trigger('change');
+
+		},
+
+		changeCheckboxSetting: function (e) {
+
+			var $this = $(e.currentTarget),
+				settingName = $this.attr('data-setting'),
+				settingState = info.get(settingName);
+
+			if (settingState === 'on') {
+				settingState = 'off';
+				$this.removeClass('screen--checkbox__checked');
+			} else {
+				settingState = 'on';
+				$this.addClass('screen--checkbox__checked');
+			}
+
+			info.set(settingName, settingState);
 
 		},
 

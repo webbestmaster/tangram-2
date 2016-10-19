@@ -98,6 +98,30 @@ html {
   width: 75%;
 }
 
+.screen--checkbox--icon,
+.screen--checkbox--icon__checked {
+  @extend .screen--button--icon;
+}
+
+.screen--checkbox {
+  @extend .screen--button;
+  .screen--checkbox--icon__checked {
+    display: none;
+  }
+  .screen--checkbox--icon {
+    display: inline;
+  }
+}
+
+.screen--checkbox__checked {
+  .screen--checkbox--icon__checked {
+    display: inline;
+  }
+  .screen--checkbox--icon {
+    display: none;
+  }
+}
+
 .scroll-area-content {
   text-align: center;
   font-size: 0;

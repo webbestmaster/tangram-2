@@ -44,11 +44,11 @@ var Timer = Backbone.Model.extend({
 		var timer = this,
 			intervalId;
 
-		timer.set('startTime', Date.now());
-
-		intervalId = setInterval(timer.update, timer.get('updatePeriod'));
-
-		timer.set('intervalId', intervalId);
+		if (info.get('timer') === 'on') {
+			timer.set('startTime', Date.now());
+			intervalId = setInterval(timer.update, timer.get('updatePeriod'));
+			timer.set('intervalId', intervalId);
+		}
 
 	},
 
