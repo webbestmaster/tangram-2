@@ -69,7 +69,7 @@ var en = {
 
 	settings: 'settings',
 	wallpaper: 'wallpaper',
-	//timer: 'timer',
+	timer: 'timer',
 	//sound: 'sound',
 	'tangram-textures': 'tangram textures'
 	//about: 'about'
