@@ -23,7 +23,9 @@ var Timer = Backbone.Model.extend({
 
 		timer.bindEventListeners();
 
-		timer.updateVisibleTime();
+		if (info.get('timer') === 'on') {
+			timer.updateVisibleTime();
+		}
 
 	},
 
@@ -48,6 +50,8 @@ var Timer = Backbone.Model.extend({
 			timer.set('startTime', Date.now());
 			intervalId = setInterval(timer.update, timer.get('updatePeriod'));
 			timer.set('intervalId', intervalId);
+		} else {
+			timer.get('$el').html('&nbsp;');
 		}
 
 	},

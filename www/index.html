@@ -211,9 +211,8 @@
         <input type="text" class="js-saved-atoms-name saved-atoms-name-input"/>
         {{?}}
 
-        <div class="tans-wrapper js-tans-wrapper">
-            <div class="timer js-timer"></div>
-        </div>
+        <div class="timer js-timer"></div>
+        <div class="tans-wrapper js-tans-wrapper"></div>
 
         <div class="flip-tan js-flip-tan">
             <div class="flip-tan-image">&nbsp;</div>
@@ -245,7 +244,14 @@
     <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.index }}">{{= it.lang.get('reset-tangram') }}</div>
     <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">{{= it.lang.get('prev-tangram') }}</div>
     <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}</div>
-    <br>
+    <br />
+    {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
+    <div class="screen--checkbox{{= className }}js-setting-checkbox" data-setting="timer">
+        <span class="screen--checkbox--icon__checked">&#xea54;</span>
+        <span class="screen--checkbox--icon">&#xea56;</span>
+        {{= it.lang.get('timer') }}
+    </div>
+    <br />
 
     {{var difficult = it.info.get('gameDifficult'); }}
 

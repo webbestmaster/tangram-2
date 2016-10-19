@@ -51,7 +51,7 @@ var TangramSuccessfulView = BaseView.extend({
 
 		window.setTimeout(function () {
 			androidAds.showAd();
-		}, 1200);
+		}, 1000);
 
 	},
 
