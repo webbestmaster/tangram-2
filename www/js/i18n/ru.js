@@ -59,7 +59,7 @@ var ru = {
 	tools: 'инструменты',
 	dishes: 'посуда',
 	footwear: 'обувь',
-	weapons: 'орижие',
+	weapons: 'оружие',
 	candles: 'свечи',
 	lamps: 'лампы',
 	teapots: 'чайники',
