@@ -223,7 +223,7 @@ info = {
 				gameDifficult: 'regular',
 				doneTangramsRegular: [],
 				doneTangramsMaster: [],
-				timer: 'on'
+				timer: 'off'
 				//screenAnimation: 'off',
 				//storyByStory: info.isNormal ? 'off' : 'on',
 				//hint: {}
