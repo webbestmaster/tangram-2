@@ -42,7 +42,6 @@ var en = {
 	animals: 'animals',
 	birds: 'birds',
 	cats: 'cats',
-	'chinese persons': 'chinese persons',
 	'dancing humans': 'dancing humans',
 	dogs: 'dogs',
 	faces: 'faces',

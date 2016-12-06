@@ -42,7 +42,6 @@ var ru = {
 	animals: 'животные',
 	birds: 'птицы',
 	cats: 'кошки',
-	'chinese persons': 'китайцы',
 	'dancing humans': 'танцоры',
 	dogs: 'собаки',
 	faces: 'лица',
