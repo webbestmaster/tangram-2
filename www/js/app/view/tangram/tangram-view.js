@@ -103,28 +103,6 @@ var TangramView = BaseView.extend({
 		view.set('timer', timer);
 		tanCollection.setData('timer', timer);
 
-
-		Promise.all([tanCollection.drawPattern(), util.preLoadTangramParts(info.get('tangramTexture')), util.preLoadTangramParts('shadow'), util.loadImage('i/flip.svg')])
-            .then(function (args) {
-
-                var canvas = args[0];
-
-                view.$el.append(canvas);
-                tanCollection.drawTans();
-                var tans = view.$el.find('.js-tan').sort(function () {
-                    return Math.random() - 0.5;
-                });
-
-                Array.prototype.unshift.call(tans, canvas);
-
-                (new TimelineMax({onComplete: function () {
-                    timer.start();
-                    $(tans).css('opacity', '');
-					tanCollection.bindEventListeners();
-                }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
-
-            });
-
 		tanCollection.createTans();
 		tanCollection.addDrawFieldTo(view.$el);
 		tanCollection.setData('rotater', rotater);
@@ -143,7 +121,27 @@ var TangramView = BaseView.extend({
 		//view.subscribe('tangram-is-done', view.hideMenuButton);
 		view.subscribe('tangram-is-done', view.hideButtons);
 
-		view.render();
+		view.render().then(function () {
+
+            view.$el.append(tanCollection.drawPattern());
+
+            Promise.all([util.preLoadTangramParts(info.get('tangramTexture')), util.preLoadTangramParts('shadow'), util.loadImage('i/flip.svg')])
+                .then(function () {
+
+                    tanCollection.drawTans();
+                    var tans = view.$el.find('.js-tan').sort(function () {
+                        return Math.random() - 0.5;
+                    });
+
+                    (new TimelineMax({onComplete: function () {
+                        timer.start();
+                        $(tans).css('opacity', '');
+                        tanCollection.bindEventListeners();
+                    }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
+
+                });
+
+		});
 
 		return BaseView.prototype.initialize.apply(view, arguments);
 
