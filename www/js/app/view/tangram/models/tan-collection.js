@@ -792,10 +792,6 @@ var TanCollection = Backbone.Collection.extend({
             minX = Infinity,
             minY = Infinity;
 
-        if (info.get('gameDifficult') !== 'regular') {
-            attributes.viewBox = [0, 0, width * 3.5, height * 3.5].join(' ');
-        }
-
         pattern.forEach(function (triangle) {
             var point, x, y, i;
             for (i = 0; i < 3; i++) {
@@ -833,6 +829,8 @@ var TanCollection = Backbone.Collection.extend({
         attributes.height = neededHeight + 'px';
         attributes.viewBox = [0, 0, neededWidth, neededHeight].join(' ');
 
+        var difficultQ = info.get('gameDifficult') === 'regular' ? 2 : 1;
+
         Object.keys(attributes).forEach(function (key) {
             var attr = document.createAttribute(key);
             attr.value = attributes[key];
@@ -840,8 +838,9 @@ var TanCollection = Backbone.Collection.extend({
         });
 
         var canvas = document.createElement('canvas');
-        canvas.width = neededWidth * 2;
-        canvas.height = neededHeight * 2;
+
+        canvas.width = difficultQ * neededWidth;
+        canvas.height = difficultQ * neededHeight;
 
         var context = canvas.getContext('2d');
 
@@ -866,7 +865,7 @@ var TanCollection = Backbone.Collection.extend({
 
                     var image = new Image();
                     image.onload = function () {
-                        context.drawImage(image, 0, 0, neededWidth * 2, neededHeight * 2);
+                        context.drawImage(image, 0, 0, difficultQ * neededWidth, difficultQ * neededHeight);
                         image.onload = null;
                         requestAnimationFrame(function () {
                             requestAnimationFrame(resolve);
@@ -881,11 +880,15 @@ var TanCollection = Backbone.Collection.extend({
 
         });
 
-        canvas.style.width = neededWidth + 'px';
-        canvas.style.height = neededHeight + 'px';
+        canvas.style.width = neededWidth * difficultQ / 2 + 'px';
+        canvas.style.height = neededHeight * difficultQ / 2 + 'px';
 
-        canvas.style.left = minX + 'px';
-        canvas.style.top = minY + 'px';
+        if (difficultQ === 1) {
+            canvas.style.top = canvas.style.left = Math.min(minX, minY) / 2  + 'px';
+        } else {
+            canvas.style.left = minX + 'px';
+            canvas.style.top = minY + 'px';
+        }
 
         return canvas;
 
