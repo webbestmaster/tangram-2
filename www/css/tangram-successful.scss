@@ -70,11 +70,41 @@
   display: inline-block;
 }
 
+.tangram-successful-full-board {
+  display: block;
+  background-color: #fff;
+  width: 90%;
 
+  /*
+  .one-more-tangram-check {
+    display: block;
+    opacity: 1;
+    font-size: 6rem;
+    line-height: 6rem;
+    right: -7.4rem;
+    left: auto;
+    top: -2.1rem;
+  }
+  */
 
+}
 
+.tangram-successful-full-board__congratulation {
+  font-family: HelveticaNeueCyr,"Helvetica Neue Light","Lucida Grande",Calibri,Arial,sans-serif;
+  display: block;
+  padding-bottom: 1rem;
+}
 
+.tangram-successful-full-board__section-name {
+  font-family: HelveticaNeueCyr,"Helvetica Neue Light","Lucida Grande",Calibri,Arial,sans-serif;
+  display: block;
+  padding-bottom: 1rem;
+}
 
+.tangram-successful-full-board__go-to-all-section {
+  font-family: HelveticaNeueCyr,"Helvetica Neue Light","Lucida Grande",Calibri,Arial,sans-serif;
+  display: block;
+}
 
 
 

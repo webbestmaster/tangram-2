@@ -64,6 +64,11 @@ var ru = {
 	teapots: 'чайники',
 	kites: 'воздушные змеи',
 
+    // section successful popup
+    congratulations: 'Поздравляем!',
+    thisSectionIsDone: 'Эта секция завершена!',
+    toAllSections: 'ко всем секциям',
+
 	// settings
 
 	settings: 'настройки',

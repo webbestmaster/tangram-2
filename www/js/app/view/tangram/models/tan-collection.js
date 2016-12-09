@@ -12,7 +12,9 @@ import sha1 from './../../../../lib/sha1';
 import info from './../../../../services/info';
 import util from './../../../../services/util';
 import TangramSuccessfulView from './../../tangram-successful/tangram-successful-view';
+import SectionSuccessfulView from './../../tangram-successful/section-successful-view';
 import tansInfo from './tans-info';
+import tangrams from './../../../data/tangrams';
 
 var atomInfo = {
     sideSize: 0.25
@@ -184,7 +186,8 @@ var TanCollection = Backbone.Collection.extend({
             isDone,
             timer,
             time,
-            stars;
+            stars,
+            sectionProgress;
 
         if (collection.getData('mode') === 'constructor') {
             return;
@@ -206,6 +209,8 @@ var TanCollection = Backbone.Collection.extend({
             return;
         }
 
+        sectionProgress = collection.getSectionProgress();
+
         log('tangram is DONE');
 
         timer = collection.getData('timer');
@@ -225,8 +230,44 @@ var TanCollection = Backbone.Collection.extend({
         collection.publish('rotater:deActivate');
         collection.publish('tangram-is-done');
         collection.deActiveAll();
-        collection.setData('success-view', new TangramSuccessfulView(collection.getData('tangram-info'), {stars: stars}));
+
+        if (sectionProgress === 1) {
+            collection.setData('success-view', new SectionSuccessfulView(collection.getData('tangram-info'), {stars: stars}));
+        } else {
+            // collection.setData('success-view', new SectionSuccessfulView(collection.getData('tangram-info'), {stars: stars}));
+            collection.setData('success-view', new TangramSuccessfulView(collection.getData('tangram-info'), {stars: stars}));  // FIXME
+        }
+
         timer.destroy();
+
+    },
+
+    getSectionProgress: function () {
+
+        var collection = this,
+            tangramInfo = collection.getData('tangram-info'),
+            sectionId = tangramInfo.id,
+            section = _.find(tangrams.data, function (section) {
+                //{name: name}
+                return section.id === sectionId;
+            }),
+            sectionAllLength = section.data.length,
+            sectionDoneLength = 0,
+            doneTangrams = info.getDoneTangrams().map(function (doneItem) {
+                return doneItem.hash;
+            });
+
+        section.data.forEach(function (sectionItem) {
+            if (doneTangrams.indexOf(sectionItem.hash) !== -1) {
+                sectionDoneLength += 1;
+            }
+        });
+
+        return {
+            done: sectionDoneLength,
+            all: sectionAllLength,
+            part: sectionDoneLength / sectionAllLength
+        }
 
     },
 

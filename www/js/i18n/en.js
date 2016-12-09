@@ -64,6 +64,11 @@ var en = {
 	teapots: 'teapots',
 	kites: 'kites',
 
+	// section successful popup
+	congratulations: 'Congratulations',
+    thisSectionIsDone: 'This section is completed!',
+    toAllSections: 'to all sections',
+
 	// settings
 
 	settings: 'settings',
