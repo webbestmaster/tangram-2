@@ -229,6 +229,12 @@
         <span class="screen--checkbox--icon">&#xea53;</span>
         {{= it.lang.get('timer') }}
     </div>
+    {{ var className = it.info.get('sound') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
+    <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound screen--button_popup" data-setting="sound">
+        <span class="screen--checkbox--icon__checked">&#xea52;</span>
+        <span class="screen--checkbox--icon">&#xea53;</span>
+        {{= it.lang.get('sound') }}
+    </div>
     <br />
 
     {{var difficult = it.info.get('gameDifficult'); }}
@@ -297,6 +303,12 @@
                             <span class="screen--checkbox--icon__checked">&#xea52;</span>
                             <span class="screen--checkbox--icon">&#xea53;</span>
                             {{= it.lang.get('timer') }}
+                        </div>
+                        {{ var className = it.info.get('sound') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
+                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound" data-setting="sound">
+                            <span class="screen--checkbox--icon__checked">&#xea52;</span>
+                            <span class="screen--checkbox--icon">&#xea53;</span>
+                            {{= it.lang.get('sound') }}
                         </div>
                     </div>
 

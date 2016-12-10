@@ -74,7 +74,7 @@ var en = {
 	settings: 'settings',
 	wallpaper: 'wallpaper',
 	timer: 'timer',
-	//sound: 'sound',
+	sound: 'sound',
 	'tangram-textures': 'tangram textures'
 	//about: 'about'
 	//'e-mail': 'e-mail',

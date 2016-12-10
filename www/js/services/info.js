@@ -223,7 +223,8 @@ info = {
 				gameDifficult: 'regular',
 				doneTangramsRegular: [],
 				doneTangramsMaster: [],
-				timer: 'off'
+				timer: 'off',
+                sound: 'on'
 				//screenAnimation: 'off',
 				//storyByStory: info.isNormal ? 'off' : 'on',
 				//hint: {}
@@ -231,7 +232,6 @@ info = {
 				//confirmTurn: 'off', // game turn
 				//confirmMove: 'off', // move unit
 				//confirmAttack: 'off', // attack unit
-				//music: 'on',
 				//vibrate: 'off',
 				//help: 'on',
 				//fightAnimation: 'off',

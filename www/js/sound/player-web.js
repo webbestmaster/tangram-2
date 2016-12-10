@@ -33,7 +33,7 @@ var win = window,
 		newAudio = new Audio();
 		if (isLoop) {
 			newAudio.addEventListener('ended', function () {
-				if (info.get('music') === 'off') {
+				if (info.get('sound') === 'off') {
 					return;
 				}
 				var audio = this;
@@ -43,7 +43,7 @@ var win = window,
 		}
 
 		newAudio.addEventListener('canplay', function () {
-			if (info.get('music') === 'off') {
+			if (info.get('sound') === 'off') {
 				return;
 			}
 			var audio = this;

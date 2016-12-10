@@ -16,7 +16,7 @@ var win = window,
 			soundMaster.initPlayers();
 
 			// Extra - remove me in future project
-            soundMaster.mainTheme = Math.floor(Math.random() * 100);
+            soundMaster.mainTheme = 'sound/preview-deep-meditation-music-1-hour.mp3';
 
 			// win.addEventListener('hashchange', soundMaster.playBgSound.bind(soundMaster), false);
 
@@ -95,18 +95,18 @@ var win = window,
 				curStr = JSON.stringify(data),
 				prevStr = JSON.stringify(prevState);
 
+
+            if (info.get('sound') === 'off') {
+                soundMaster.stop(data);
+                return;
+            }
+
 			//save arguments for - do not start play the same sound
-			if (curStr === prevStr && data.isLoop) {
+			if (curStr === prevStr) {
 				return;
 			}
-
-			soundMaster.stop(data);
 
 			soundMaster.roads[data.road] = JSON.parse(curStr);
-
-			if (info.get('music') === 'off') {
-				return;
-			}
 
 			player.play(data);
 
@@ -118,6 +118,8 @@ var win = window,
 				player = soundMaster.getPlayer();
 
 			player.stop(data);
+
+            soundMaster.roads[data.road] = {};
 
 		},
 

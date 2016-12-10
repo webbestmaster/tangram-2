@@ -74,7 +74,7 @@ var ru = {
 	settings: 'настройки',
 	wallpaper: 'обои',
 	timer: 'таймер',
-	//sound: 'sound',
+	sound: 'звуки',
 	'tangram-textures': 'текстуры танов'
 	//about: 'about'
 	//'e-mail': 'e-mail',

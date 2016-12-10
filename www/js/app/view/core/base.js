@@ -269,7 +269,8 @@ var win = window,
 
 			var $this = $(e.currentTarget),
 				settingName = $this.attr('data-setting'),
-				settingState = info.get(settingName);
+				settingState = info.get(settingName),
+				bgSound;
 
 			if (settingState === 'on') {
 				settingState = 'off';
@@ -280,6 +281,18 @@ var win = window,
 			}
 
 			info.set(settingName, settingState);
+
+			if (settingName !== 'sound') {
+				return;
+			}
+
+            bgSound = {
+                sound: sm.mainTheme,
+                isLoop: true,
+                road: 0
+            };
+
+            settingState === 'on' ? sm.play(bgSound) : sm.stop(bgSound);
 
 		},
 
