@@ -75,7 +75,7 @@ var win = window,
 
             console.log('down');
 
-			sm.getPlayer().play({
+			sm.play({
                 sound: 'sound/button-click-sound-bible.wav',
                 isLoop: false,
                 road: 1
@@ -87,7 +87,7 @@ var win = window,
 
 			console.log('up');
 
-            sm.getPlayer().play({
+            sm.play({
                 sound: 'sound/pen-clicking-sound-bible.wav',
                 isLoop: false,
                 road: 1

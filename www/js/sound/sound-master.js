@@ -15,7 +15,10 @@ var win = window,
 
 			soundMaster.initPlayers();
 
-			win.addEventListener('hashchange', soundMaster.playBgSound.bind(soundMaster), false);
+			// Extra - remove me in future project
+            soundMaster.mainTheme = Math.floor(Math.random() * 100);
+
+			// win.addEventListener('hashchange', soundMaster.playBgSound.bind(soundMaster), false);
 
 		},
 

@@ -15,6 +15,7 @@ import util from './../../../services/util';
 import tangrams from './../../data/tangrams';
 import _ from './../../../lib/lodash';
 import $ from './../../../lib/jquery';
+import sm from './../../../sound/sound-master';
 
 var tanCollectionProto = TanCollection.prototype;
 
@@ -143,7 +144,13 @@ var TangramView = BaseView.extend({
 
 		});
 
-		return BaseView.prototype.initialize.apply(view, arguments);
+        sm.play({
+            sound: 'sound/preview-deep-meditation-music-1-hour.mp3',
+            isLoop: true,
+            road: 0
+        });
+
+        return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
 
@@ -156,7 +163,13 @@ var TangramView = BaseView.extend({
 			oldShowingTween = view.get('showing-flip-btn-tween'),
 			oldHidingTween = view.get('hiding-flip-btn-tween');
 
-		oldShowingTween.kill();
+        // sm.stop({
+            // sound: 'sound/preview-deep-meditation-music-1-hour.mp3',
+            // isLoop: true,
+            // road: 0
+        // });
+
+        oldShowingTween.kill();
 		oldHidingTween.kill();
 
 		tanCollection.destroy();
@@ -222,6 +235,12 @@ var TangramView = BaseView.extend({
 	flipTan: function () {
 
 		this.publish('tan-collection:flipLastActiveTan');
+
+        sm.play({
+            sound: 'sound/button-click-sound-bible.wav',
+            isLoop: false,
+            road: 1
+        });
 
 	},
 

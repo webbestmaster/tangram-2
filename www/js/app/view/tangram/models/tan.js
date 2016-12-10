@@ -6,6 +6,7 @@ import mediator from './../../../../services/mediator';
 import info from './../../../../services/info';
 import device from './../../../../services/device';
 import _ from './../../../../lib/lodash';
+import sm from './../../../../sound/sound-master';
 
 var Tan = Backbone.Model.extend({
 
@@ -178,7 +179,8 @@ var Tan = Backbone.Model.extend({
 
 	setStateActiveDeActive: function (self, isActive) {
 
-		var tan = this;
+		var tan = this,
+			sound = 'sound/' + (isActive ? 'button-click-sound-bible.wav' : 'pen-clicking-sound-bible.wav');
 
 		if (isActive) {
 			tan.publish('rotater:deActivate');
@@ -189,7 +191,13 @@ var Tan = Backbone.Model.extend({
 
 		tan.moveToUpDown(isActive);
 
-	},
+        sm.play({
+            sound: sound,
+            isLoop: false,
+            road: 1
+        });
+
+    },
 
 	drawActiveDeActive: function (isActive) {
 

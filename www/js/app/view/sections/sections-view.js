@@ -13,6 +13,7 @@ import _ from './../../../lib/lodash';
 import $ from './../../../lib/jquery';
 import Queue from './../../../lib/queue';
 import util from './../../../services/util';
+import sm from './../../../sound/sound-master';
 
 var tanCollectionProto = tanCollection.prototype;
 
@@ -67,7 +68,13 @@ var SectionsView = BaseView.extend({
 			view.setVerticalSwiper();
 		});
 
-		return BaseView.prototype.initialize.apply(view, arguments);
+        sm.play({
+            sound: sm.mainTheme,
+            isLoop: true,
+            road: 0
+        });
+
+        return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
 

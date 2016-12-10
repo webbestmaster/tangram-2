@@ -12,6 +12,7 @@ import lang from './../../../services/lang';
 import tangrams from './../../data/tangrams';
 import androidAds from './../../../services/android-ads';
 import util from './../../../services/util';
+import sm from './../../../sound/sound-master';
 
 var SectionSuccessfulView = BaseView.extend({
 
@@ -44,7 +45,13 @@ var SectionSuccessfulView = BaseView.extend({
 
 		view.subscribe('route', view.hide);
 
-		return BaseView.prototype.initialize.apply(view, arguments);
+        sm.play({
+            sound: 'sound/button-click-sound-bible.wav',
+            isLoop: false,
+            road: 0
+        });
+
+        return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
 

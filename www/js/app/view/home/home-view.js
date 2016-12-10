@@ -13,6 +13,7 @@ import Queue from './../../../lib/queue';
 import _ from './../../../lib/lodash';
 import tansInfo from './../tangram/models/tans-info';
 import textureInfo from './../tangram/models/texture-info';
+import sm from './../../../sound/sound-master';
 
 var HomeView = BaseView.extend({
 
@@ -60,7 +61,13 @@ var HomeView = BaseView.extend({
 
             });
 
-		return BaseView.prototype.initialize.apply(view, arguments);
+        sm.play({
+            sound: sm.mainTheme,
+            isLoop: true,
+            road: 0
+        });
+
+        return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
 

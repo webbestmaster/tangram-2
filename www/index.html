@@ -156,9 +156,9 @@
                 {{?}}
             </div>
 
-            <div class="js-one-more-tangram one-more-tangram_left" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">&#xf040;</div>
-            <div class="js-one-more-tangram one-more-tangram_center" data-id="{{= it.id }}" data-index="{{= it.index }}">&#xf087;</div>
-            <div class="js-one-more-tangram one-more-tangram_right" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">&#xf03e;</div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_left" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">&#xf040;</div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_center" data-id="{{= it.id }}" data-index="{{= it.index }}">&#xf087;</div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_right" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">&#xf03e;</div>
 
         </div>
 
@@ -176,7 +176,7 @@
             <div class="tangram-successful-full-board popup-container">
                 <p class="tangram-successful-full-board__congratulation section-header">{{= it.lang.get('congratulations') }}!</p>
                 <p class="tangram-successful-full-board__section-name section-header">{{= it.lang.get('thisSectionIsDone') }}</p>
-                <p class="tangram-successful-full-board__go-to-all-section screen--button_popup js-to-all-section-sections">{{= it.lang.get('toAllSections') }}</p>
+                <p class="tangram-successful-full-board__go-to-all-section screen--button_popup js-to-all-section-sections js-click-sound">{{= it.lang.get('toAllSections') }}</p>
             </div>
 
         </div>

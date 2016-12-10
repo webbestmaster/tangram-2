@@ -11,6 +11,7 @@ import info from './../../../services/info';
 import tangrams from './../../data/tangrams';
 import androidAds from './../../../services/android-ads';
 import util from './../../../services/util';
+import sm from './../../../sound/sound-master';
 
 var TangramSuccessfulView = BaseView.extend({
 
@@ -40,7 +41,13 @@ var TangramSuccessfulView = BaseView.extend({
 
 		view.subscribe('route', view.hide);
 
-		return BaseView.prototype.initialize.apply(view, arguments);
+        sm.play({
+            sound: 'sound/button-click-sound-bible.wav',
+            isLoop: false,
+            road: 0
+        });
+
+        return BaseView.prototype.initialize.apply(view, arguments);
 
 	},
 
