@@ -85,7 +85,7 @@
         <div class="scroll-area-container js-scroll-container">
             <div class="swiper-wrapper">
                 <div class="scroll-area-content swiper-slide">
-                    <div class="screen-back js-back">&#xf040;</div>
+                    <div class="screen-back js-back js-click-sound">&#xf040;</div>
                     <div class="section-header-wrapper">
                         <p class="section-header">{{= it.lang.getPartial(it.sectionHeader) }}</p>
                     </div>
@@ -95,13 +95,13 @@
                     {{~ it.items :item:index }}
 
                     {{? isSections}}
-                    <div class="section-preview" data-route="sections/{{= item.id }}">
+                    <div class="section-preview js-click-sound" data-route="sections/{{= item.id }}">
                         <div class="section-preview-done-info">{{= item.doneTangramsHashs.length }} / {{= item.length }}</div>
                         <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
                         <p class="section-preview-name ellipsis">{{= it.lang.getPartial(item.name) }}</p>
                     </div>
                     {{??}}
-                    <div class="section-preview" data-hash="{{= item.hash }}" data-route="sections/{{= it.id }}/{{= index }}">
+                    <div class="section-preview js-click-sound" data-hash="{{= item.hash }}" data-route="sections/{{= it.id }}/{{= index }}">
                         {{? item.preview.svgText }}
                         {{= item.preview.svgText }}
                         {{??}}
@@ -140,7 +140,7 @@
     <div class="screen-disable">
 
         <div class="one-more-tangram-wrapper">
-            <div class="screen-back js-back">&#xf040;</div>
+            <div class="screen-back js-back js-click-sound">&#xf040;</div>
 
             <div class="one-more-tangram-check">&#xf03a;</div>
 
@@ -171,7 +171,7 @@
     <div class="screen-disable">
 
         <div class="one-more-tangram-wrapper">
-            <div class="screen-back js-back">&#xf040;</div>
+            <div class="screen-back js-back js-click-sound">&#xf040;</div>
 
             <div class="tangram-successful-full-board popup-container">
                 <p class="tangram-successful-full-board__congratulation section-header">{{= it.lang.get('congratulations') }}!</p>
@@ -190,10 +190,10 @@
     <section class="screen">
 
         {{? it.info.isNormal && it.info.get('gameDifficult') === 'regular'}}
-        <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link_left js-external-link">&#xe900;</div>
+        <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link_left js-external-link js-click-sound">&#xe900;</div>
         {{?}}
 
-        <div class="tangram-menu-button js-tangram-menu-button">
+        <div class="tangram-menu-button js-tangram-menu-button js-click-sound">
             <div class="tangram-menu-button-line_0">&nbsp;</div>
             <div class="tangram-menu-button-line_1">&nbsp;</div>
             <div class="tangram-menu-button-line_2">&nbsp;</div>
@@ -219,12 +219,12 @@
 
     <h1 class="tangram-menu--header">{{= it.lang.get('menu') }}</h1>
 
-    <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.index }}">{{= it.lang.get('reset-tangram') }}</div>
-    <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">{{= it.lang.get('prev-tangram') }}</div>
-    <div class="screen--button_popup js-one-more-tangram" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}</div>
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.index }}">{{= it.lang.get('reset-tangram') }}</div>
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">{{= it.lang.get('prev-tangram') }}</div>
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}</div>
     <br />
     {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-    <div class="screen--checkbox{{= className }} js-menu-setting-checkbox screen--button_popup" data-id="{{= it.id }}" data-index="{{= it.index }}" data-setting="timer">
+    <div class="screen--checkbox{{= className }} js-menu-setting-checkbox js-click-sound screen--button_popup" data-id="{{= it.id }}" data-index="{{= it.index }}" data-setting="timer">
         <span class="screen--checkbox--icon__checked">&#xea52;</span>
         <span class="screen--checkbox--icon">&#xea53;</span>
         {{= it.lang.get('timer') }}
@@ -234,7 +234,7 @@
     {{var difficult = it.info.get('gameDifficult'); }}
 
     {{~ ['regular', 'master'] :type }}
-    <div class="screen--button_popup js-set-game-difficult" data-difficult="{{= type }}" data-id="{{= it.id }}" data-index="{{= it.index }}">
+    <div class="screen--button_popup js-set-game-difficult js-click-sound" data-difficult="{{= type }}" data-id="{{= it.id }}" data-index="{{= it.index }}">
 
         {{? type === difficult }}
         <span class="screen--button--icon">&#xea54;</span>
@@ -248,7 +248,7 @@
     {{~}}
 
     <br>
-    <div class="screen--button_popup js-back-to-section">{{= it.lang.get('exit-to-section') }}</div>
+    <div class="screen--button_popup js-back-to-section js-click-sound">{{= it.lang.get('exit-to-section') }}</div>
 
 
 </script>
@@ -356,9 +356,9 @@
 
         <div class="popup-container js-popup-container">
             {{? it.hideOnClick }}
-            <div class="popup-close">&nbsp;</div>
+            <div class="popup-close js-click-sound">&nbsp;</div>
             {{??}}
-            <div class="popup-close js-hide-popup">&nbsp;</div>
+            <div class="popup-close js-click-sound js-hide-popup">&nbsp;</div>
             {{?}}
         </div>
 
@@ -389,11 +389,11 @@
         {{?}}
 
         {{? answer === it.answer }}
-        <div class="external-link-answer-button js-external-link js-back" data-href="{{= it.url }}">
+        <div class="external-link-answer-button js-external-link js-back js-click-sound" data-href="{{= it.url }}">
             {{= answer }}
         </div>
         {{??}}
-        <div class="external-link-answer-button js-back">
+        <div class="external-link-answer-button js-back js-click-sound">
             {{= answer }}
         </div>
         {{?}}
@@ -412,15 +412,15 @@
             {{= rateUsLang.header }}
         </p>
 
-        <div class="popup-wide-button js-external-link js-back js-rate-us-rate-now" data-href="{{= it.url }}">
+        <div class="popup-wide-button js-external-link js-back js-rate-us-rate-now js-click-sound" data-href="{{= it.url }}">
             {{= rateUsLang.rateNow }}
         </div>
 
-        <div class="popup-wide-button js-back">
+        <div class="popup-wide-button js-back js-click-sound">
             {{= rateUsLang.remindMeLater }}
         </div>
 
-        <div class="popup-wide-button js-back js-rate-us-no-thanks">
+        <div class="popup-wide-button js-back js-rate-us-no-thanks js-click-sound">
             {{= rateUsLang.noThanks }}
         </div>
 
@@ -438,11 +438,11 @@
             {{= lang.get('newVersionIsAvailable') }}
         </p>
 
-        <div class="popup-wide-button js-update-cache">
+        <div class="popup-wide-button js-update-cache js-click-sound">
             .yes.
         </div>
 
-        <div class="popup-wide-button-negative js-back">
+        <div class="popup-wide-button-negative js-back js-click-sound">
             .no.
         </div>
 
