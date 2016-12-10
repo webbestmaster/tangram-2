@@ -14,7 +14,7 @@ var win = window,
 
 		var player = this;
 
-		player.roads = new Array(4).map(function () {
+		player.roads = [0, 1, 2, 3].map(function () {
 			return new Audio();
 		});
 

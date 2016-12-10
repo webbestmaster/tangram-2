@@ -67,6 +67,15 @@ window.addEventListener('load', function () {
         BaseView.prototype.initStatic();
 
         Backbone.history.start();
+
+        var player = sm.getPlayer();
+
+        player.play({
+            sound: 'sound/preview-deep-meditation-music-1-hour.mp3',
+            isLoop: false,
+            road: 0
+        });
+
         // win.setTimeout(androidAds.showAd, 3e3);
 
     }());

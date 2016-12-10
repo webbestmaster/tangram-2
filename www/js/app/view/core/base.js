@@ -43,7 +43,11 @@ var win = window,
 			'click .js-tab-close': 'tabClose',
 
 			// settings
-			'click .js-setting-checkbox': 'changeCheckboxSetting'
+			'click .js-setting-checkbox': 'changeCheckboxSetting',
+
+			// sounds
+			'down .js-click-sound': 'playDownSound',
+			'up .js-click-sound': 'playUpSound'
 
 		},
 
@@ -66,6 +70,30 @@ var win = window,
 			up: ['mouseup', 'touchend']
 			//dbl: ['dblclick', 'doubletap']
 		},
+
+        playDownSound: function () {
+
+            console.log('down');
+
+			sm.getPlayer().play({
+                sound: 'sound/button-click-sound-bible.wav',
+                isLoop: false,
+                road: 1
+            });
+
+        },
+
+        playUpSound: function () {
+
+			console.log('up');
+
+            sm.getPlayer().play({
+                sound: 'sound/pen-clicking-sound-bible.wav',
+                isLoop: false,
+                road: 1
+            });
+
+        },
 
 		initStatic: function () {
 

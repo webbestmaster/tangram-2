@@ -33,13 +33,13 @@
                 <div class="screen--button-wrapper_split_second">
 
                     <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button js-set-game-difficult" data-difficult="regular">{{= it.lang.get('play-regular') }}</div>
+                        <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="regular">{{= it.lang.get('play-regular') }}</div>
                     </div>
                     <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button js-set-game-difficult" data-difficult="master">{{= it.lang.get('play-master') }}</div>
+                        <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="master">{{= it.lang.get('play-master') }}</div>
                     </div>
                     <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button" data-route="settings">{{= it.lang.get('settings') }}</div>
+                        <div class="screen--button js-click-sound" data-route="settings">{{= it.lang.get('settings') }}</div>
                     </div>
 
                     {{? it.info.get('dev-mode') }}
@@ -67,7 +67,7 @@
                 </div>
 
                 {{? it.info.isNormal }}
-                <div class="anim-from-right js-anim-from-right">
+                <div class="anim-from-right js-anim-from-right js-click-sound">
                     <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link js-external-link">&#xe900;</div>
                 </div>
                 {{?}}
@@ -260,7 +260,7 @@
         <div class="scroll-area-container js-scroll-container">
             <div class="swiper-wrapper">
                 <div class="scroll-area-content swiper-slide">
-                    <div class="screen-back js-back">&#xf040;</div>
+                    <div class="screen-back js-back js-click-sound">&#xf040;</div>
                     <div class="section-header-wrapper">
                         <p class="section-header">{{= it.lang.get('settings') }}</p>
                     </div>
@@ -278,7 +278,7 @@
 
                         <div class="set-lang-wrapper">
 
-                            <div class="screen--button js-set-lang" data-lang="{{= lang }}">
+                            <div class="screen--button js-set-lang js-click-sound" data-lang="{{= lang }}">
                                 {{? currentLanguage === lang }}
                                 <span class="screen--button--icon">&#xea54;</span>
                                 {{??}}
@@ -293,7 +293,7 @@
 
                     <div class="settings-section">
                         {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-                        <div class="screen--checkbox{{= className }}js-setting-checkbox" data-setting="timer">
+                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound" data-setting="timer">
                             <span class="screen--checkbox--icon__checked">&#xea52;</span>
                             <span class="screen--checkbox--icon">&#xea53;</span>
                             {{= it.lang.get('timer') }}
@@ -307,12 +307,12 @@
                             {{var tangramTexture = it.info.get('tangramTexture'); }}
                             {{~ it.textureList :item}}
                             {{? item === tangramTexture }}
-                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active">
+                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active js-click-sound">
                                 <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
                                 <img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
                             </div>
                             {{??}}
-                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview">
+                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview js-click-sound">
                                 <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
                                 <img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
                             </div>
@@ -327,11 +327,11 @@
                             {{var backgroundTexture = it.info.get('backgroundTexture'); }}
                             {{~ it.backgroundList :item}}
                             {{? item === backgroundTexture }}
-                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview background-texture-preview_active">
+                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview background-texture-preview_active js-click-sound">
                                 <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
                             </div>
                             {{??}}
-                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview">
+                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview js-click-sound">
                                 <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
                             </div>
                             {{?}}

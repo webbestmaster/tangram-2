@@ -140,7 +140,7 @@
 	// copy data
 	gulp.task('copy-data', function () {
 
-		[ /*'images', */ 'i', 'font'].forEach(function (dir) {
+		[ /*'images', */ 'i', 'font', 'sound'].forEach(function (dir) {
 			return gulp.src('./www/' + dir + '/**/*')
 				.pipe(gulp.dest('./dist/www/' + dir));
 		});
