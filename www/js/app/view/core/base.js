@@ -76,7 +76,7 @@ var win = window,
             console.log('down');
 
 			sm.play({
-                sound: 'sound/button-click-sound-bible.wav',
+                sound: 'sound/button-down.mp3',
                 isLoop: false,
                 road: 1
             });
@@ -88,7 +88,7 @@ var win = window,
 			console.log('up');
 
             sm.play({
-                sound: 'sound/pen-clicking-sound-bible.wav',
+                sound: 'sound/button-up.mp3',
                 isLoop: false,
                 road: 1
             });

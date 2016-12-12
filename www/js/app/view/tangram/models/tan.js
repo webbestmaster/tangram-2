@@ -180,7 +180,7 @@ var Tan = Backbone.Model.extend({
 	setStateActiveDeActive: function (self, isActive) {
 
 		var tan = this,
-			sound = 'sound/' + (isActive ? 'button-click-sound-bible.wav' : 'pen-clicking-sound-bible.wav');
+			sound = 'sound/' + (isActive ? 'tan-down.mp3' : 'tan-up.mp3');
 
 		if (isActive) {
 			tan.publish('rotater:deActivate');

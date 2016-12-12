@@ -46,9 +46,9 @@ var SectionSuccessfulView = BaseView.extend({
 		view.subscribe('route', view.hide);
 
         sm.play({
-            sound: 'sound/button-click-sound-bible.wav',
+            sound: 'sound/section-complete.mp3',
             isLoop: false,
-            road: 0
+            road: 1
         });
 
         return BaseView.prototype.initialize.apply(view, arguments);

@@ -237,7 +237,7 @@ var TangramView = BaseView.extend({
 		this.publish('tan-collection:flipLastActiveTan');
 
         sm.play({
-            sound: 'sound/button-click-sound-bible.wav',
+            sound: 'sound/tan-up.mp3',
             isLoop: false,
             road: 1
         });

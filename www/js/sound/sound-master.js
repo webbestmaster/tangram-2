@@ -95,6 +95,12 @@ var win = window,
 				curStr = JSON.stringify(data),
 				prevStr = JSON.stringify(prevState);
 
+			console.log(data.road, data.sound);
+
+			if (data.road === 0) {
+				console.log('do not play main sound');
+				return;
+			}
 
             if (info.get('sound') === 'off') {
                 soundMaster.stop(data);
@@ -102,7 +108,7 @@ var win = window,
             }
 
 			//save arguments for - do not start play the same sound
-			if (curStr === prevStr) {
+			if (curStr === prevStr && data.loop) {
 				return;
 			}
 
