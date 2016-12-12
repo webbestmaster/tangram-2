@@ -95,10 +95,10 @@ var win = window,
 				curStr = JSON.stringify(data),
 				prevStr = JSON.stringify(prevState);
 
-			console.log(data.road, data.sound);
+			//console.log(data.road, data.sound);
 
 			if (data.road === 0) {
-				console.log('do not play main sound');
+				//console.log('do not play main sound');
 				return;
 			}
 

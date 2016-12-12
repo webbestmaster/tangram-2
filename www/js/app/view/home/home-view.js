@@ -41,7 +41,13 @@ var HomeView = BaseView.extend({
             .loadImages([
             	'i/popup-close-icon.svg',
                 'font/origram.otf',
-                'font/icomoon.ttf'
+                'font/icomoon.ttf',
+				'sound/button-down.mp3',
+				'sound/button-up.mp3',
+				'sound/tan-down.mp3',
+				'sound/tan-up.mp3',
+				'sound/section-complete.mp3',
+				'sound/tan-complete.mp3'
             ])
 			.then(function () {
 				return view.setBackground(bgTextureId);

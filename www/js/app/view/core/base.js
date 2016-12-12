@@ -73,7 +73,7 @@ var win = window,
 
         playDownSound: function () {
 
-            console.log('down');
+            //console.log('down');
 
 			sm.play({
                 sound: 'sound/button-down.mp3',
@@ -85,7 +85,7 @@ var win = window,
 
         playUpSound: function () {
 
-			console.log('up');
+			//console.log('up');
 
             sm.play({
                 sound: 'sound/button-up.mp3',
