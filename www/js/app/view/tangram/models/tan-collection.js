@@ -898,7 +898,7 @@ var TanCollection = Backbone.Collection.extend({
             p = p.then(function () {
                 return new Promise(function (resolve, reject) {
 
-                    if (svg.children[0]) {
+                    if (svg.children && svg.children[0]) { // in old android svg.children === null
                         svg.removeChild(svg.children[0]);
                     }
 

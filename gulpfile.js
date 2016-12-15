@@ -227,10 +227,10 @@
 	var server = require('gulp-server-livereload');
 
 	gulp.task('webserver', function() {
-		gulp.src('./')
+		gulp.src('./dist/www/')
 			.pipe(server({
-				livereload: true,
-				directoryListing: true,
+				livereload: false,
+				directoryListing: false,
 				open: true,
 				host: '0.0.0.0',
 				port: 8080,
