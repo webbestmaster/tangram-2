@@ -8,7 +8,7 @@ import info from './../../../../services/info';
 var Timer = Backbone.Model.extend({
 
 	defaults: {
-		stars: [45e3, 90e3],
+		stars: [60e3, 120e3],
 		updatePeriod: 200,
 		visibleTime: '0:00'
 	},
