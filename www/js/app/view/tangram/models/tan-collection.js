@@ -831,7 +831,10 @@ var TanCollection = Backbone.Collection.extend({
             maxX = -Infinity,
             maxY = -Infinity,
             minX = Infinity,
-            minY = Infinity;
+            minY = Infinity,
+            maxDpi = 2,
+            dpi = (window.devicePixelRatio || 1) >= maxDpi ? maxDpi : 1,
+            dpiQ = dpi / maxDpi;
 
         pattern.forEach(function (triangle) {
             var point, x, y, i;
@@ -866,9 +869,12 @@ var TanCollection = Backbone.Collection.extend({
         var neededWidth = maxX - minX;
         var neededHeight = maxY - minY;
 
-        attributes.width = neededWidth + 'px';
-        attributes.height = neededHeight + 'px';
-        attributes.viewBox = [0, 0, neededWidth, neededHeight].join(' ');
+        neededWidth = neededWidth * dpiQ;
+        neededHeight = neededHeight * dpiQ;
+
+        attributes.width = neededWidth / dpiQ + 'px';
+        attributes.height = neededHeight / dpiQ + 'px';
+        attributes.viewBox = [0, 0, neededWidth / dpiQ, neededHeight / dpiQ].join(' ');
 
         var difficultQ = info.get('gameDifficult') === 'regular' ? 2 : 1;
 
@@ -921,8 +927,8 @@ var TanCollection = Backbone.Collection.extend({
 
         });
 
-        canvas.style.width = neededWidth * difficultQ / 2 + 'px';
-        canvas.style.height = neededHeight * difficultQ / 2 + 'px';
+        canvas.style.width = neededWidth * difficultQ / 2 / dpiQ + 'px';
+        canvas.style.height = neededHeight * difficultQ / 2 / dpiQ + 'px';
 
         if (difficultQ === 1) {
             canvas.style.top = canvas.style.left = Math.min(minX, minY) / 2  + 'px';
