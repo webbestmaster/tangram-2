@@ -1,0 +1,18 @@
+body {
+ margin:0;
+ background: #333;
+}
+svg {
+  display: block;
+  margin: 20px auto;
+  width:400px;
+}
+
+#hippo, #elephant, #star{
+  visibility:hidden;
+}
+
+#slider {
+  width:420px;
+  margin:20px auto;
+}
