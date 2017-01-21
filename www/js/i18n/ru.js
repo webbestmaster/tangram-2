@@ -35,6 +35,7 @@ var ru = {
 	//'share': 'share',
 
 	// sections
+	section: 'секция',
 	sections: 'секции',
 	tangram: 'танграм',
 
@@ -68,6 +69,8 @@ var ru = {
     congratulations: 'Поздравляем!',
     thisSectionIsDone: 'Эта секция завершена!',
     toAllSections: 'ко всем секциям',
+    taskNumberFromNumber: 'Задача: №{taskNumber} из {allTaskNumber}',
+    progress: 'Прогресс',
 
 	// settings
 

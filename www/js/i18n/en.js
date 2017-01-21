@@ -35,6 +35,7 @@ var en = {
 	//'share': 'share',
 
 	// sections
+	section: 'section',
 	sections: 'sections',
 	tangram: 'tangram',
 
@@ -68,8 +69,10 @@ var en = {
 	congratulations: 'Congratulations',
     thisSectionIsDone: 'This section is completed!',
     toAllSections: 'to all sections',
+    taskNumberFromNumber: 'Task: №{taskNumber} from {allTaskNumber}',
+    progress: 'Progress',
 
-	// settings
+    // settings
 
 	settings: 'settings',
 	wallpaper: 'wallpaper',

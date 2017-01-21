@@ -209,8 +209,6 @@ var TanCollection = Backbone.Collection.extend({
             return;
         }
 
-        sectionProgress = collection.getSectionProgress();
-
         log('tangram is DONE');
 
         timer = collection.getData('timer');
@@ -231,11 +229,13 @@ var TanCollection = Backbone.Collection.extend({
         collection.publish('tangram-is-done');
         collection.deActiveAll();
 
-        if (sectionProgress === 1) {
-            collection.setData('success-view', new SectionSuccessfulView(collection.getData('tangram-info'), {stars: stars}));
+        sectionProgress = collection.getSectionProgress();
+
+        if (sectionProgress.part === 1) {
+            collection.setData('success-view', new SectionSuccessfulView(collection.getData('tangram-info'), {stars: stars, sectionProgress: sectionProgress}));
         } else {
             // collection.setData('success-view', new SectionSuccessfulView(collection.getData('tangram-info'), {stars: stars}));
-            collection.setData('success-view', new TangramSuccessfulView(collection.getData('tangram-info'), {stars: stars}));  // FIXME
+            collection.setData('success-view', new TangramSuccessfulView(collection.getData('tangram-info'), {stars: stars, sectionProgress: sectionProgress}));  // FIXME
         }
 
         timer.destroy();

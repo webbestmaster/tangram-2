@@ -106,6 +106,22 @@
   display: block;
 }
 
+.tangram-successful__tangram-info {
+  display: block;
+  padding: 0.6rem 1.5rem 0 3.8rem;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+}
+
+.tangram-successful__tangram-info-paragraph {
+  font-family: HelveticaNeueCyr,"Helvetica Neue Light","Lucida Grande",Calibri,Arial,sans-serif;
+  display: block;
+}
+
+.tangram-successful__tangram-info-paragraph--capitalize {
+  text-transform: capitalize;
+}
+
 
 
 

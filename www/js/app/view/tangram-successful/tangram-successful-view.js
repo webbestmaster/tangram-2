@@ -8,6 +8,7 @@ import mediator from './../../../services/mediator';
 import $ from './../../../lib/jquery';
 import _ from './../../../lib/lodash';
 import info from './../../../services/info';
+import lang from './../../../services/lang';
 import tangrams from './../../data/tangrams';
 import androidAds from './../../../services/android-ads';
 import util from './../../../services/util';
@@ -32,6 +33,8 @@ var TangramSuccessfulView = BaseView.extend({
 
 		sectionInfo.stars = data.stars;
 		sectionInfo.info = info;
+		sectionInfo.lang = lang;
+		sectionInfo.sectionProgress = data.sectionProgress;
 
 		view.setElement(tm.get('tangram-successful')(sectionInfo));
 
