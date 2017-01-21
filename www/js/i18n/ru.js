@@ -67,7 +67,7 @@ var ru = {
 
     // section successful popup
     congratulations: 'Поздравляем!',
-    thisSectionIsDone: 'Эта секция завершена!',
+    thisSectionIsDone: 'Секция завершена!',
     toAllSections: 'ко всем секциям',
     taskNumberFromNumber: 'Задача: №{taskNumber} из {allTaskNumber}',
     progress: 'Прогресс',

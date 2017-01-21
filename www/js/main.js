@@ -25,6 +25,7 @@ import doT from './lib/dot';
 import Queue from './lib/queue';
 import Swiper from './lib/swiper';
 import gsap from './lib/TweenMax.min';
+import ScrambleTextPlugin from './lib/ScrambleTextPlugin.min';
 
 // init all services
 import device from './services/device';

@@ -25,9 +25,8 @@ var TangramSuccessfulView = BaseView.extend({
 	initialize: function (tangramInfo, data) {
 
 		var view = this,
-			sectionInfo;
-
-		//view.extendFromObj(data);
+			sectionInfo,
+            tl = new TimelineLite();
 
 		sectionInfo = util.getSectionInfo(tangramInfo);
 
@@ -41,6 +40,10 @@ var TangramSuccessfulView = BaseView.extend({
 		view.render();
 
 		(new TimelineMax()).staggerFromTo('.js-back, .one-more-tangram-check, .js-tangram-successful-view-star, .js-one-more-tangram', 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
+
+        view.$el.find('.tangram-successful__tangram-info-paragraph').each(function () {
+            tl = tl.to(this, 1, {scrambleText: {text: this.getAttribute('data-text')}});
+        });
 
 		view.subscribe('route', view.hide);
 

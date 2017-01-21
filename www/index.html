@@ -143,11 +143,12 @@
             <div class="screen-back js-back js-click-sound">&#xf040;</div>
 
             <div class="tangram-successful__tangram-info">
-                <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize">{{= it.lang.get('section') }}: {{= it.lang.get(it.section.name) }}</p>
-                <p class="tangram-successful__tangram-info-paragraph">{{= it.lang.get('taskNumberFromNumber').replace('{taskNumber}', it.index + 1).replace('{allTaskNumber}', it.section.data.length) }}</p>
-                <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize">
-                    {{= it.lang.get('progress') }}: {{= it.sectionProgress.done }} / {{= it.sectionProgress.all }} ({{= (it.sectionProgress.part * 100).toFixed(1) }}%)
-                </p>
+                <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
+                data-text="{{= it.lang.get('section') }}: {{= it.lang.get(it.section.name) }}"></p>
+                <p class="tangram-successful__tangram-info-paragraph"
+                   data-text="{{= it.lang.get('taskNumberFromNumber').replace('{taskNumber}', it.index + 1).replace('{allTaskNumber}', it.section.data.length) }}"></p>
+                <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
+                data-text="{{= it.lang.get('progress') }}: {{= it.sectionProgress.done }} / {{= it.sectionProgress.all }} ({{= (it.sectionProgress.part * 100).toFixed(1) }}%)"></p>
             </div>
 
             <div class="one-more-tangram-check">&#xf03a;</div>
