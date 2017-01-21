@@ -136,9 +136,9 @@ var TangramView = BaseView.extend({
 
                     (new TimelineMax({onComplete: function () {
                         timer.start();
-                        $(tans).css('opacity', '');
+                        $(tans).css('opacity', '').addClass('tan--deactive');
                         tanCollection.bindEventListeners();
-                    }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 1, scale: 1}, 0.1);
+                    }})).staggerFromTo(tans, 0.5, {opacity: 0, scale: 2, force3D: true}, {opacity: 0.5, scale: 1}, 0.1);
 
                 });
 
@@ -324,7 +324,8 @@ var TangramView = BaseView.extend({
 
 		scale = (patternQ > viewQ) ? (sizeX / patterSizeX) : (sizeY / patterSizeY);
 
-		scale = scale * 0.75;
+		// scale = scale * 0.75;
+		scale = scale * 0.9;
 
 		scale = Math.min(scale, maxScale);
 

@@ -311,6 +311,10 @@ html {
   @include prefix(background-size, 100% 100%);
 }
 
+.tan--deactive {
+  opacity: 0.5;
+}
+
 .tan-shadow {
   opacity: 0.33;
 }

@@ -183,6 +183,7 @@ var Tan = Backbone.Model.extend({
 			sound = 'sound/' + (isActive ? 'tan-down.mp3' : 'tan-up.mp3');
 
 		if (isActive) {
+			$( tan.get('node') ).removeClass('tan--deactive');
 			tan.publish('rotater:deActivate');
 			tan.setLastAccept();
 		}
