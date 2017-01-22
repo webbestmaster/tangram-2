@@ -325,7 +325,7 @@ var TangramView = BaseView.extend({
 		scale = (patternQ > viewQ) ? (sizeX / patterSizeX) : (sizeY / patterSizeY);
 
 		// scale = scale * 0.75;
-		scale = scale * 0.9;
+		scale = scale * 0.85;
 
 		scale = Math.min(scale, maxScale);
 
