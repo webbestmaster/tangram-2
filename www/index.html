@@ -144,7 +144,7 @@
 
             <div class="tangram-successful__tangram-info">
                 <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
-                data-text="{{= it.lang.get('section') }}: {{= it.lang.get(it.section.name) }}"></p>
+                data-text="{{= it.lang.get('section') }}: {{= it.lang.getPartial(it.section.name) }}"></p>
                 <p class="tangram-successful__tangram-info-paragraph"
                    data-text="{{= it.lang.get('taskNumberFromNumber').replace('{taskNumber}', it.index + 1).replace('{allTaskNumber}', it.section.data.length) }}"></p>
                 <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
