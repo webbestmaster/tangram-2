@@ -893,38 +893,8 @@ var TanCollection = Backbone.Collection.extend({
 
         canvas.className = 'tangram-pattern';
 
-        var p = Promise.resolve();
-
-        newTriangles = newTriangles.sort(function () {
-            return Math.random() - 0.5;
-        });
-
         newTriangles.forEach(function (triangle) {
-
-            p = p.then(function () {
-                return new Promise(function (resolve, reject) {
-
-                    if (svg.children && svg.children[0]) { // in old android svg.children === null
-                        svg.removeChild(svg.children[0]);
-                    }
-
-                    svg.appendChild(coordinatesToPolygon(triangle));
-
-                    var image = new Image();
-                    image.onload = function () {
-                        context.drawImage(image, 0, 0, difficultQ * neededWidth, difficultQ * neededHeight);
-                        image.onload = null;
-                        requestAnimationFrame(function () {
-                            requestAnimationFrame(resolve);
-                        });
-                    };
-
-                    // Init the image with our SVG
-                    image.src = 'data:image/svg+xml,' + util.getOuterHtml(svg);
-
-                });
-            });
-
+            svg.appendChild(coordinatesToPolygon(triangle));
         });
 
         canvas.style.width = neededWidth * difficultQ / 2 / dpiQ + 'px';
@@ -937,7 +907,19 @@ var TanCollection = Backbone.Collection.extend({
             canvas.style.top = minY + 'px';
         }
 
-        return canvas;
+        return new Promise(function (resolve, reject) {
+
+            var image = new Image();
+            image.onload = function () {
+                context.drawImage(image, 0, 0, difficultQ * neededWidth, difficultQ * neededHeight);
+                image.onload = null;
+                resolve(canvas);
+            };
+
+            // Init the image with our SVG
+            image.src = 'data:image/svg+xml,' + util.getOuterHtml(svg);
+
+        });
 
     },
 
