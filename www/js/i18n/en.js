@@ -69,7 +69,7 @@ var en = {
 	congratulations: 'Congratulations',
     thisSectionIsDone: 'This section is completed!',
     toAllSections: 'to all sections',
-    taskNumberFromNumber: 'Task: №{taskNumber} from {allTaskNumber}',
+    taskNumberFromNumber: 'Task: #{taskNumber} from {allTaskNumber}',
     progress: 'Progress',
 
     // settings
