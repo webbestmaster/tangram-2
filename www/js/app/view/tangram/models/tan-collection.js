@@ -917,8 +917,7 @@ var TanCollection = Backbone.Collection.extend({
             };
 
             // Init the image with our SVG
-            image.src = 'data:image/svg+xml,' + util.getOuterHtml(svg);
-
+            image.src = 'data:image/svg+xml;utf8,' + util.getOuterHtml(svg);
         });
 
     },

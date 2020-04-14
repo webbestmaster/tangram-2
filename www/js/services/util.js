@@ -147,7 +147,7 @@ var arrayProto = Array.prototype,
 			outerHtml = tempDiv.innerHTML;
 			tempDiv.removeChild(cloneNode);
 
-			return outerHtml;
+			return outerHtml.replace(/#/g, '%23');
 
 		},
 
