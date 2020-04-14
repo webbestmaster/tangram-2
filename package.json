@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "tangram for all platforms",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.17.0"
+  },
   "repository": {
     "type": "git"
   },
