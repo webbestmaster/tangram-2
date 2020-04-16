@@ -23,57 +23,64 @@
 
     <section class="screen">
 
-                <div class="screen--button-wrapper_split_first">
-                    <div class="title-game-name">
-                        <div class="anim-from-right js-anim-from-right">1001</div>
-                        <div class="anim-from-right js-anim-from-right">tangram</div>
-                    </div>
+        <div class="screen--button-wrapper_split_first">
+            <div class="title-game-name">
+                <div class="anim-from-right js-anim-from-right">1001</div>
+                <div class="anim-from-right js-anim-from-right">tangram</div>
+            </div>
+        </div>
+
+        <div class="screen--button-wrapper_split_second">
+
+            <div class="anim-from-right js-anim-from-right">
+                <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="regular">{{=
+                    it.lang.get('play-regular') }}
                 </div>
-
-                <div class="screen--button-wrapper_split_second">
-
-                    <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="regular">{{= it.lang.get('play-regular') }}</div>
-                    </div>
-                    <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="master">{{= it.lang.get('play-master') }}</div>
-                    </div>
-                    <div class="anim-from-right js-anim-from-right">
-                        <div class="screen--button js-click-sound" data-route="settings">{{= it.lang.get('settings') }}</div>
-                    </div>
-
-                    {{? it.info.get('dev-mode') }}
-                    <div class="screen--button" data-route="tangram-constructor">constructor</div>
-
-                    {{ var size = it.textureInfo.size; }}
-
-                    {{~ it.textureInfo.textures :texture:index }}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="{{= size }}" height="{{= size }}" class="js-save-texture-svg" data-name="{{= index }}">
-                        <defs>
-                            <pattern id="default" width="{{= size }}px" height="{{= size }}px" patternUnits="userSpaceOnUse">
-                                <image x="0" y="0" width="{{= size }}px" height="{{= size }}px" xlink:href="{{= texture }}"></image>
-                            </pattern>
-                            <pattern id="triangle-medium-pattern" width="{{= size }}px" height="{{= size }}px"
-                                     patternUnits="userSpaceOnUse" patternTransform="translate({{= size / 2 }}, 0) rotate(135)">
-                                <image x="0" y="0" width="{{= size }}px" height="{{= size }}px" xlink:href="{{= texture }}"></image>
-                            </pattern>
-                        </defs>
-                    </svg>
-
-                    {{~}}
-
-                    {{?}}
-
+            </div>
+            <div class="anim-from-right js-anim-from-right">
+                <div class="screen--button js-set-game-difficult js-click-sound" data-difficult="master">{{=
+                    it.lang.get('play-master') }}
                 </div>
+            </div>
+            <div class="anim-from-right js-anim-from-right">
+                <div class="screen--button js-click-sound" data-route="settings">{{= it.lang.get('settings') }}</div>
+            </div>
 
-                {{? it.info.isNormal }}
-                <div class="anim-from-right js-anim-from-right js-click-sound">
-                    <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link js-external-link">&#xe900;</div>
-                </div>
-                {{?}}
+            {{? it.info.get('dev-mode') }}
+            <div class="screen--button" data-route="tangram-constructor">constructor</div>
 
-                <div class="font-hook-icon">&#xf040;</div>
-                <div class="font-hook-tangram-font">tangram</div>
+            {{ var size = it.textureInfo.size; }}
+
+            {{~ it.textureInfo.textures :texture:index }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="{{= size }}" height="{{= size }}" class="js-save-texture-svg"
+                 data-name="{{= index }}">
+                <defs>
+                    <pattern id="default" width="{{= size }}px" height="{{= size }}px" patternUnits="userSpaceOnUse">
+                        <image x="0" y="0" width="{{= size }}px" height="{{= size }}px"
+                               xlink:href="{{= texture }}"></image>
+                    </pattern>
+                    <pattern id="triangle-medium-pattern" width="{{= size }}px" height="{{= size }}px"
+                             patternUnits="userSpaceOnUse" patternTransform="translate({{= size / 2 }}, 0) rotate(135)">
+                        <image x="0" y="0" width="{{= size }}px" height="{{= size }}px"
+                               xlink:href="{{= texture }}"></image>
+                    </pattern>
+                </defs>
+            </svg>
+
+            {{~}}
+
+            {{?}}
+
+        </div>
+
+        {{? it.info.isNormal }}
+        <div class="anim-from-right js-anim-from-right js-click-sound">
+            <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link js-external-link">&#xe900;</div>
+        </div>
+        {{?}}
+
+        <div class="font-hook-icon">&#xf040;</div>
+        <div class="font-hook-tangram-font">tangram</div>
     </section>
 
 </script>
@@ -92,39 +99,44 @@
 
                     {{ var isSections = it.isSections; }}
 
-                    {{~ it.items :item:index }}
+                    <div class="clear">
+                        {{~ it.items :item:index }}
 
-                    {{? isSections}}
-                    <div class="section-preview js-click-sound" data-route="sections/{{= item.id }}">
-                        <div class="section-preview-done-info">{{= item.doneTangramsHashs.length }} / {{= item.length }}</div>
-                        <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
-                        <p class="section-preview-name ellipsis">{{= it.lang.getPartial(item.name) }}</p>
-                    </div>
-                    {{??}}
-                    <div class="section-preview js-click-sound" data-hash="{{= item.hash }}" data-route="sections/{{= it.id }}/{{= index }}">
-                        {{? item.preview.svgText }}
-                        {{= item.preview.svgText }}
+                        {{? isSections}}
+                        <div class="section-preview js-click-sound" data-route="sections/{{= item.id }}">
+                            <div class="section-preview-done-info">{{= item.doneTangramsHashs.length }} / {{=
+                                item.length }}
+                            </div>
+                            <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+                            <p class="section-preview-name ellipsis">{{= it.lang.getPartial(item.name) }}</p>
+                        </div>
                         {{??}}
-                        <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
-                        {{?}}
-                        <div class="section-preview-star">
+                        <div class="section-preview js-click-sound" data-hash="{{= item.hash }}"
+                             data-route="sections/{{= it.id }}/{{= index }}">
+                            {{? item.preview.svgText }}
+                            {{= item.preview.svgText }}
+                            {{??}}
+                            <img class="section-preview-image" src="i/item-preview/{{= item.preview }}.png" alt="">
+                            {{?}}
+                            <div class="section-preview-star">
 
-                            {{ var stars = item.stars; }}
+                                {{ var stars = item.stars; }}
 
-                            {{? it.info.get('timer') === 'on' }}
+                                {{? it.info.get('timer') === 'on' }}
                                 {{? stars === 0}}&#xf006;&#xf006;&#xf006;{{?}}
                                 {{? stars === 1}}&#xf005;&#xf006;&#xf006;{{?}}
                                 {{? stars === 2}}&#xf005;&#xf005;&#xf006;{{?}}
                                 {{? stars === 3}}&#xf005;&#xf005;&#xf005;{{?}}
-                            {{??}}
+                                {{??}}
                                 {{= stars ? '&#xf03a;' : '&nbsp;' }}
-                            {{?}}
+                                {{?}}
 
+                            </div>
                         </div>
-                    </div>
-                    {{?}}
+                        {{?}}
 
-                    {{~}}
+                        {{~}}
+                    </div>
 
                 </div>
             </div>
@@ -144,11 +156,11 @@
 
             <div class="tangram-successful__tangram-info">
                 <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
-                data-text="{{= it.lang.get('section') }}: {{= it.lang.getPartial(it.section.name) }}"></p>
+                   data-text="{{= it.lang.get('section') }}: {{= it.lang.getPartial(it.section.name) }}"></p>
                 <p class="tangram-successful__tangram-info-paragraph"
                    data-text="{{= it.lang.get('taskNumberFromNumber').replace('{taskNumber}', it.index + 1).replace('{allTaskNumber}', it.section.data.length) }}"></p>
                 <p class="tangram-successful__tangram-info-paragraph tangram-successful__tangram-info-paragraph--capitalize"
-                data-text="{{= it.lang.get('progress') }}: {{= it.sectionProgress.done }} / {{= it.sectionProgress.all }} ({{= (it.sectionProgress.part * 100).toFixed(1) }}%)"></p>
+                   data-text="{{= it.lang.get('progress') }}: {{= it.sectionProgress.done }} / {{= it.sectionProgress.all }} ({{= (it.sectionProgress.part * 100).toFixed(1) }}%)"></p>
             </div>
 
             <div class="one-more-tangram-check">&#xf03a;</div>
@@ -161,13 +173,20 @@
                 {{? stars === 3}} {{ list = ['&#xf005;','&#xf005;','&#xf005;']; }}{{?}}
 
                 {{? it.info.get('timer') === 'on' }}
-                    {{~ list :item }}<span class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
+                {{~ list :item }}<span
+                    class="tangram-successful-view-star js-tangram-successful-view-star">{{= item }}</span>{{~}}
                 {{?}}
             </div>
 
-            <div class="js-one-more-tangram js-click-sound one-more-tangram_left" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">&#xf040;</div>
-            <div class="js-one-more-tangram js-click-sound one-more-tangram_center" data-id="{{= it.id }}" data-index="{{= it.index }}">&#xf087;</div>
-            <div class="js-one-more-tangram js-click-sound one-more-tangram_right" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">&#xf03e;</div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_left" data-id="{{= it.id }}"
+                 data-index="{{= it.prevIndex }}">&#xf040;
+            </div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_center" data-id="{{= it.id }}"
+                 data-index="{{= it.index }}">&#xf087;
+            </div>
+            <div class="js-one-more-tangram js-click-sound one-more-tangram_right" data-id="{{= it.id }}"
+                 data-index="{{= it.nextIndex }}">&#xf03e;
+            </div>
 
         </div>
 
@@ -183,9 +202,12 @@
             <div class="screen-back js-back js-click-sound">&#xf040;</div>
 
             <div class="tangram-successful-full-board popup-container">
-                <p class="tangram-successful-full-board__congratulation section-header">{{= it.lang.get('congratulations') }}!</p>
-                <p class="tangram-successful-full-board__section-name section-header">{{= it.lang.get('thisSectionIsDone') }}</p>
-                <p class="tangram-successful-full-board__go-to-all-section screen--button_popup js-to-all-section-sections js-click-sound">{{= it.lang.get('toAllSections') }}</p>
+                <p class="tangram-successful-full-board__congratulation section-header">{{=
+                    it.lang.get('congratulations') }}!</p>
+                <p class="tangram-successful-full-board__section-name section-header">{{=
+                    it.lang.get('thisSectionIsDone') }}</p>
+                <p class="tangram-successful-full-board__go-to-all-section screen--button_popup js-to-all-section-sections js-click-sound">
+                    {{= it.lang.get('toAllSections') }}</p>
             </div>
 
         </div>
@@ -199,7 +221,9 @@
     <section class="screen">
 
         {{? it.info.isNormal && it.info.get('gameDifficult') === 'regular'}}
-        <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link_left js-external-link js-click-sound">&#xe900;</div>
+        <div data-href="{{= it.info.getLinkToStore('pro') }}" class="market-link_left js-external-link js-click-sound">
+            &#xe900;
+        </div>
         {{?}}
 
         <div class="tangram-menu-button js-tangram-menu-button js-click-sound">
@@ -228,28 +252,37 @@
 
     <h1 class="tangram-menu--header">{{= it.lang.get('menu') }}</h1>
 
-    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.index }}">{{= it.lang.get('reset-tangram') }}</div>
-    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.prevIndex }}">{{= it.lang.get('prev-tangram') }}</div>
-    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}" data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}</div>
-    <br />
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}"
+         data-index="{{= it.index }}">{{= it.lang.get('reset-tangram') }}
+    </div>
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}"
+         data-index="{{= it.prevIndex }}">{{= it.lang.get('prev-tangram') }}
+    </div>
+    <div class="screen--button_popup js-one-more-tangram js-click-sound" data-id="{{= it.id }}"
+         data-index="{{= it.nextIndex }}">{{= it.lang.get('next-tangram') }}
+    </div>
+    <br/>
     {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-    <div class="screen--checkbox{{= className }} js-menu-setting-checkbox js-click-sound screen--button_popup" data-id="{{= it.id }}" data-index="{{= it.index }}" data-setting="timer">
+    <div class="screen--checkbox{{= className }} js-menu-setting-checkbox js-click-sound screen--button_popup"
+         data-id="{{= it.id }}" data-index="{{= it.index }}" data-setting="timer">
         <span class="screen--checkbox--icon__checked">&#xea52;</span>
         <span class="screen--checkbox--icon">&#xea53;</span>
         {{= it.lang.get('timer') }}
     </div>
     {{ var className = it.info.get('sound') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-    <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound screen--button_popup" data-setting="sound">
+    <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound screen--button_popup"
+         data-setting="sound">
         <span class="screen--checkbox--icon__checked">&#xea52;</span>
         <span class="screen--checkbox--icon">&#xea53;</span>
         {{= it.lang.get('sound') }}
     </div>
-    <br />
+    <br/>
 
     {{var difficult = it.info.get('gameDifficult'); }}
 
     {{~ ['regular', 'master'] :type }}
-    <div class="screen--button_popup js-set-game-difficult js-click-sound" data-difficult="{{= type }}" data-id="{{= it.id }}" data-index="{{= it.index }}">
+    <div class="screen--button_popup js-set-game-difficult js-click-sound" data-difficult="{{= type }}"
+         data-id="{{= it.id }}" data-index="{{= it.index }}">
 
         {{? type === difficult }}
         <span class="screen--button--icon">&#xea54;</span>
@@ -283,7 +316,9 @@
                     <div class="settings-section">
 
                         <div class="section-sub-header">&nbsp;</div>
-                        <div class="section-sub-header">{{= it.lang.languages.en.language }} / {{= it.lang.languages.ru.language }}</div>
+                        <div class="section-sub-header">{{= it.lang.languages.en.language }} / {{=
+                            it.lang.languages.ru.language }}
+                        </div>
 
                         {{ var currentLanguage = it.info.get('language'); }}
 
@@ -308,13 +343,15 @@
 
                     <div class="settings-section">
                         {{ var className = it.info.get('timer') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound" data-setting="timer">
+                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound"
+                             data-setting="timer">
                             <span class="screen--checkbox--icon__checked">&#xea52;</span>
                             <span class="screen--checkbox--icon">&#xea53;</span>
                             {{= it.lang.get('timer') }}
                         </div>
                         {{ var className = it.info.get('sound') === 'on' ? ' screen--checkbox__checked ' : ' '; }}
-                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound" data-setting="sound">
+                        <div class="screen--checkbox{{= className }}js-setting-checkbox js-click-sound"
+                             data-setting="sound">
                             <span class="screen--checkbox--icon__checked">&#xea52;</span>
                             <span class="screen--checkbox--icon">&#xea53;</span>
                             {{= it.lang.get('sound') }}
@@ -328,13 +365,17 @@
                             {{var tangramTexture = it.info.get('tangramTexture'); }}
                             {{~ it.textureList :item}}
                             {{? item === tangramTexture }}
-                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active js-click-sound">
-                                <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
+                            <div data-index="{{= item }}"
+                                 class="screen--button js-tangram-texture-preview tangram-texture-preview tangram-texture-preview_active js-click-sound">
+                                <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg"
+                                     alt=""/>
                                 <img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
                             </div>
                             {{??}}
-                            <div data-index="{{= item }}" class="screen--button js-tangram-texture-preview tangram-texture-preview js-click-sound">
-                                <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg" alt=""/>
+                            <div data-index="{{= item }}"
+                                 class="screen--button js-tangram-texture-preview tangram-texture-preview js-click-sound">
+                                <img class="tangram-texture-preview-image" src="i/tangram-texture/{{= item }}.jpg"
+                                     alt=""/>
                                 <img class="tangram-texture-preview-frame" src="i/tangram-frame.svg" alt=""/>
                             </div>
                             {{?}}
@@ -348,12 +389,16 @@
                             {{var backgroundTexture = it.info.get('backgroundTexture'); }}
                             {{~ it.backgroundList :item}}
                             {{? item === backgroundTexture }}
-                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview background-texture-preview_active js-click-sound">
-                                <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
+                            <div data-index="{{= item }}"
+                                 class="screen--button js-background-texture-preview background-texture-preview background-texture-preview_active js-click-sound">
+                                <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg"
+                                     alt=""/>
                             </div>
                             {{??}}
-                            <div data-index="{{= item }}" class="screen--button js-background-texture-preview background-texture-preview js-click-sound">
-                                <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg" alt=""/>
+                            <div data-index="{{= item }}"
+                                 class="screen--button js-background-texture-preview background-texture-preview js-click-sound">
+                                <img class="background-texture-preview-image" src="i/background-preview/{{= item }}.jpg"
+                                     alt=""/>
                             </div>
                             {{?}}
                             {{~}}
@@ -433,7 +478,8 @@
             {{= rateUsLang.header }}
         </p>
 
-        <div class="popup-wide-button js-external-link js-back js-rate-us-rate-now js-click-sound" data-href="{{= it.url }}">
+        <div class="popup-wide-button js-external-link js-back js-rate-us-rate-now js-click-sound"
+             data-href="{{= it.url }}">
             {{= rateUsLang.rateNow }}
         </div>
 
