@@ -33,6 +33,7 @@ var win = window,
 
 			if ( now - lastShow >= ad.minShowPeriod ) {
 				// console.log('ads');
+				alert('ads');
 				ad.set('lastShow', now);
 				Android.displayInterstitial();
 			} else {
@@ -66,5 +67,9 @@ if ( info.get('dev-mode') ) {
 }
 
 androidAds.init();
+
+setTimeout(function () {
+	androidAds.showAd();
+}, 10e3);
 
 export default androidAds;
