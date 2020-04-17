@@ -6,7 +6,8 @@ import info from './info';
 var win = window,
 	androidAds = {
 		attr: {},
-		minShowPeriod: 4 * 60e3,
+		// minShowPeriod: 4 * 60e3,
+		minShowPeriod: 4,
 		set: function (key, value) {
 			this.attr[key] = value;
 			return this;
@@ -33,7 +34,6 @@ var win = window,
 
 			if ( now - lastShow >= ad.minShowPeriod ) {
 				// console.log('ads');
-				alert('ads');
 				ad.set('lastShow', now);
 				Android.displayInterstitial();
 			} else {
