@@ -321,7 +321,7 @@ info = {
 			return false;
 
 		});
-		
+
 		if (!wasExist) {
 			doneTangrams.push(data);
 		}

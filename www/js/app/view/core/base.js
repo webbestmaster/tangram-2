@@ -761,6 +761,7 @@ var win = window,
 				freeMode: true,
 				scrollbar: {
 					el: '.swiper-scrollbar',
+					hide: true,
 				},
 			});
 
