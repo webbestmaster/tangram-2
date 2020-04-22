@@ -756,11 +756,12 @@ var win = window,
 			$el.find('.swiper-slide').css('height', 'auto');
 
 			verticalSwiper = new Swiper($el.find(view.selectors.verticalSwiper), {
-				scrollbar: '.swiper-scrollbar',
 				direction: 'vertical',
 				slidesPerView: 'auto',
-				mousewheelControl: true,
-				freeMode: true
+				freeMode: true,
+				scrollbar: {
+					el: '.swiper-scrollbar',
+				},
 			});
 
 			view.set('vertical-swiper', verticalSwiper);
